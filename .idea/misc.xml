@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/nagyl/Desktop/green_math/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18333333333333332" />
-        <entry key="..\:/Users/nagyl/Documents/GitHub/green_math/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/nagyl/Documents/GitHub/green_math/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/nagyl/Documents/GitHub/green_math/app/src/main/res/layout/activity_second_oszt.xml" value="0.2734375" />
+        <entry key="..\:/Users/nagyl/Documents/GitHub/green_math/app/src/main/res/layout/fragment_second_o_frag.xml" value="0.25" />
       </map>
     </option>
   </component>

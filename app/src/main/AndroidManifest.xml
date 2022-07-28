@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Green_math">
         <activity
+            android:name=".second_oszt"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

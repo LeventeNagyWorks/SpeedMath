@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2e2e2e"
+    tools:context=".second_oszt">
+
+
+    <TextView
+        android:id="@+id/text_guide"
+        android:layout_width="288dp"
+        android:layout_height="171dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginTop="232dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Feladat típusunként 1 perce van válaszolni a kérdésekre. Próbáljon meg egy perc alatt minél több kérdésre válaszolni. A típusok között tarthat szünetet, ha igényli."
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/start_button2"
+        android:layout_width="253dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="172dp"
+        android:text="START"
+        android:textSize="20sp"
+        android:onClick="this"
+        tools:ignore="OnClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="147dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="#DF0000"
+        android:text="VISSZA"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

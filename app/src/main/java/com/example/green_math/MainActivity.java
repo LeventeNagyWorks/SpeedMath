@@ -2,6 +2,7 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -17,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(new OnClickListener() {
+        Button button_exit = (Button) findViewById(R.id.button_exit);
+        button_exit.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -26,5 +27,30 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+
+        Button button_sec = (Button) findViewById(R.id.button_sec);
+        button_sec.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,second_oszt.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+//        Button button_third = (Button) findViewById(R.id.button_third);
+//        button_sec.setOnClickListener(new OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this,third_oszt.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
+
     }
 }
