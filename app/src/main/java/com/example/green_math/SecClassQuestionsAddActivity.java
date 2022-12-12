@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -32,7 +35,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
     double rightAnswer = 0;
 
     long mMillisUntilFinished = 20000; //1 min = 60000
-    boolean addEnds = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,6 +177,33 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
         rightAnswered.setText("Pont: " + point);
 
 
+        answerInput.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    buttonSubmit.setEnabled(false);
+                } else {
+                    buttonSubmit.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
 
 
         if (mMillisUntilFinished > 0){
@@ -203,8 +232,10 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
 
                 answerStr = answerInput.getText().toString();
                 answerNum = Double.parseDouble(answerStr);
-                if (answerStr == "") {
+
+                if(answerInput.getText() == null || answerInput.getText().equals("")) {
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
+                    questionAnswered++;
                 }
 
                 if (rightAnswer==answerNum){
