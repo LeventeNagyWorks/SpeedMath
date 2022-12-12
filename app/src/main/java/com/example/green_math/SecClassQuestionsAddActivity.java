@@ -8,6 +8,8 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,7 +21,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
     public int counter;
 
 
-    Button buttonDelete, buttonDot, buttonSubmit;
+    Button buttonDelete, buttonDot, buttonMinus, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
 
     TextView textQuestion;
@@ -34,7 +36,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 20000; //1 min = 60000
+    long mMillisUntilFinished = 30000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
         button7 = (Button) findViewById(R.id.buttonNum7);
         button8 = (Button) findViewById(R.id.buttonNum8);
         button9 = (Button) findViewById(R.id.buttonNum9);
+        buttonMinus = (Button) findViewById(R.id.buttonMinus);
         buttonDot = (Button) findViewById(R.id.buttonDot);
         textQuestion = (TextView) findViewById(R.id.textQuestion);
 
@@ -89,6 +92,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "0");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -96,6 +100,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "1");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -103,6 +108,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "2");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -110,6 +116,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "3");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -117,6 +124,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "4");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -124,6 +132,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "5");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -131,6 +140,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "6");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -138,6 +148,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "7");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -145,6 +156,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "8");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -152,6 +164,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "9");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -159,6 +172,15 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + ".");
+                buttonDot.setEnabled(false);
+            }
+        });
+
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answerInput.setText(answerInput.getText() + "-");
+                buttonMinus.setEnabled(false);
             }
         });
 
@@ -166,6 +188,8 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText("");
+                buttonMinus.setEnabled(true);
+                buttonDot.setEnabled(true);
             }
         });
 
@@ -204,6 +228,33 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
         });
 
 
+//        answerInput.addTextChangedListener(new TextWatcher() {
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                if(s.toString().trim().contains()){
+//                    buttonSubmit.setEnabled(false);
+//                } else {
+//                    buttonSubmit.setEnabled(true);
+//                }
+//            }
+//
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count,
+//                                          int after) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//        });
+
+
 
 
         if (mMillisUntilFinished > 0){
@@ -215,6 +266,9 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
     private void getARandomAddQuestion() {
 
         answerInput.setBackgroundResource(R.drawable.input_answer);
+
+        buttonMinus.setEnabled(true);
+        buttonDot.setEnabled(true);
 
         int randFirstNum = 10;
         int randSecNum = 10;
@@ -237,6 +291,8 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
                     questionAnswered++;
                 }
+
+
 
                 if (rightAnswer==answerNum){
                     answerInput.setBackgroundResource(R.drawable.right_answer_bg);
@@ -262,6 +318,18 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             }
         });
         answerInput.setText("");
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+            point = 0;
+            questionAnswered = 0;
+            mMillisUntilFinished = 0;
+            System.exit(0);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 
