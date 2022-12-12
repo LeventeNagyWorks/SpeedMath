@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button_exit = (Button) findViewById(R.id.button_exit);
+        Button button_exit = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.button_exit);
         button_exit.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                finish();
+                finishAndRemoveTask();
                 System.exit(0);
             }
         });
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,second_oszt.class);
+                Intent intent = new Intent(MainActivity.this, SecClassActivity.class);
                 startActivity(intent);
             }
         });

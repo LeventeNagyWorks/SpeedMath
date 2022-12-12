@@ -8,6 +8,8 @@
     tools:context=".MainActivity">
 
 
+
+
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="286dp"
@@ -16,6 +18,7 @@
         android:text="Üdvözlet!"
         android:textColor="@android:color/white"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -24,7 +27,6 @@
         app:layout_constraintVertical_bias="0.042" />
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="286dp"
         android:layout_height="70dp"
         android:layout_marginBottom="496dp"
@@ -41,12 +43,13 @@
 
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_first"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="492dp"
-        android:backgroundTint="#4CAF50"
         android:text="1. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,12 +58,13 @@
         app:layout_constraintRight_toRightOf="parent" />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_9_gimn_szakkozepisk"
+        android:background="@drawable/button_secondary_class"
+        android:textColor="@color/white"
         android:layout_width="262dp"
         android:layout_height="69dp"
         android:layout_marginBottom="216dp"
-        android:backgroundTint="#580B65"
         android:text="9. o. gimn./szakközépisk."
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,12 +72,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_9_szakisk"
+        android:background="@drawable/button_secondary_class"
+        android:textColor="@color/white"
         android:layout_width="262dp"
         android:layout_height="69dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#580B65"
         android:text="9. o. szakisk."
         android:textSize="15sp"
         app:layout_constraintHorizontal_bias="0.496"
@@ -81,12 +86,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_9_gimn_szakkozepisk" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_sixth"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="372dp"
-        android:backgroundTint="#4CAF50"
         android:text="6. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,12 +100,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_sec"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="492dp"
-        android:backgroundTint="#4CAF50"
         android:text="2. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,12 +114,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_eigth"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="312dp"
-        android:backgroundTint="#4CAF50"
         android:text="8. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,12 +128,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_fifth"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="372dp"
-        android:backgroundTint="#4CAF50"
         android:text="5. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -133,12 +142,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_fourth"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="432dp"
-        android:backgroundTint="#4CAF50"
         android:text="4. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -146,12 +156,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_third"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="432dp"
-        android:backgroundTint="#4CAF50"
         android:text="3. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,12 +170,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_seventh"
+        android:background="@drawable/button_primary_class"
+        android:textColor="@color/white"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginBottom="312dp"
-        android:backgroundTint="#4CAF50"
         android:text="7. osztály"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -172,8 +184,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_exit"
+        android:background="@drawable/button_back"
+        android:textColor="@color/white"
         android:layout_width="147dp"
         android:layout_height="56dp"
         android:layout_marginBottom="44dp"
