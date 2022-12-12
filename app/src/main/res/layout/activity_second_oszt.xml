@@ -9,11 +9,29 @@
 
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="354dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="84dp"
+        android:gravity="center"
+        android:text="Feladat Leaírás"
+        android:textColor="@android:color/white"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/text_guide"
-        android:layout_width="288dp"
-        android:layout_height="171dp"
+        android:layout_width="304dp"
+        android:layout_height="173dp"
         android:layout_gravity="center_vertical|end"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="96dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="Feladat típusunként 1 perce van válaszolni a kérdésekre. Próbáljon meg egy perc alatt minél több kérdésre válaszolni. A típusok között tarthat szünetet, ha igényli."
         android:textColor="@android:color/white"
@@ -23,14 +41,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/start_button2"
         android:layout_width="253dp"
         android:layout_height="72dp"
-        android:layout_marginTop="112dp"
         android:background="@drawable/button_start"
         android:onClick="this"
         android:text="START"
@@ -41,7 +57,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_guide"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.261"
         tools:ignore="OnClick" />
 
     <!--    <androidx.appcompat.widget.AppCompatButton-->

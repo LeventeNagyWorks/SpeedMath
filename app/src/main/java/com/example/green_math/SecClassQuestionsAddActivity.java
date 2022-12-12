@@ -201,17 +201,20 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
         rightAnswered.setText("Pont: " + point);
 
 
+
+
         answerInput.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if(s.toString().trim().length()==0){
+                if(s.toString().trim().length()==0 || s.toString().contains(".-") || s.toString().contains("-.")){
                     buttonSubmit.setEnabled(false);
                 } else {
                     buttonSubmit.setEnabled(true);
                 }
             }
+
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count,
@@ -226,35 +229,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
 
             }
         });
-
-
-//        answerInput.addTextChangedListener(new TextWatcher() {
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//                if(s.toString().trim().contains()){
-//                    buttonSubmit.setEnabled(false);
-//                } else {
-//                    buttonSubmit.setEnabled(true);
-//                }
-//            }
-//
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count,
-//                                          int after) {
-//                // TODO Auto-generated method stub
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                // TODO Auto-generated method stub
-//
-//            }
-//        });
-
-
 
 
         if (mMillisUntilFinished > 0){
