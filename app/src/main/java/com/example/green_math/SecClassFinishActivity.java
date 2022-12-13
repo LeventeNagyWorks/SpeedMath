@@ -33,11 +33,6 @@ public class SecClassFinishActivity extends AppCompatActivity {
         textResult = findViewById(R.id.textResult);
         questionAnswered = findViewById(R.id.textQuestionAnswered);
 
-//        secClassSubPoints = getIntent().getIntExtra("SecClassSubPont", 0);
-//        secClassSubQuestionAnswered = getIntent().getIntExtra("SecClassSubFeladatDb", 0);
-//        secClassAddPoints = getIntent().getIntExtra("SecClassAddPont", 0);
-//        secClassAddQuestionAnswered = getIntent().getIntExtra("SecClassAddFeladatDb", 0);
-
 
         SharedPreferences sp1 = getApplicationContext().getSharedPreferences("secClassAddResults", Context.MODE_PRIVATE);
         secClassAddPoints = sp1.getInt("secClassAddPoints", -1);
