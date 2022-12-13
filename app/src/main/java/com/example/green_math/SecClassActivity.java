@@ -15,7 +15,7 @@ public class SecClassActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_oszt);
+        setContentView(R.layout.activity_sec_class);
 
 
 //        Button button_back = (Button) findViewById(R.id.button_back);

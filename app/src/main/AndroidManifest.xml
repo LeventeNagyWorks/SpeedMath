@@ -9,6 +9,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Green_math">
         <activity
+            android:name=".SecClassFinishActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SecClassSubResultActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SecClassQuestionsSubActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SecClassAddResultActivity"
             android:exported="false">
             <meta-data
