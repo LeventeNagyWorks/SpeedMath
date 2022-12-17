@@ -15,11 +15,11 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class SecClassQuestionsAddActivity extends AppCompatActivity{
+public class QuestionsSubActivity extends AppCompatActivity{
     public int counter;
 
 
-    Button buttonDelete, buttonDot, buttonMinus, buttonSubmit;
+    Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
 
     TextView textQuestion;
@@ -29,18 +29,23 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
     private static String answerStr;
     private static double answerNum;
 
-    public static int secClassAddPoints = 0;
-    public static int secClassAddQuestionAnswered = 0;
+    public static int subPoints = 0;
+    public static int subQuestionAnswered = 0;
+    int addPoints = 0;
+    int addQuestionAnswered = 0;
+
+
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 60000; //1 min = 60000
+
+
+    long mMillisUntilFinished = 1000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sec_class_questions_add);
-
+        setContentView(R.layout.activity_questions_sub);
 
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
@@ -53,13 +58,14 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onFinish() {
                 countTime.setText("Vége");
-
-                Intent intent = new Intent(SecClassQuestionsAddActivity.this, SecClassAddResultActivity.class);
-                intent.putExtra("SecClassAddPont", secClassAddPoints);
-                intent.putExtra("SecClassAddFeladatDb", secClassAddQuestionAnswered);
+                
+                Intent intent = new Intent(QuestionsSubActivity.this, SubResultActivity.class);
+                intent.putExtra("SubPont", subPoints);
+                intent.putExtra("SubFeladatDb", subQuestionAnswered);
                 startActivity(intent);
-                secClassAddPoints = 0;
-                secClassAddQuestionAnswered = 0;
+
+                subPoints = 0;
+                subQuestionAnswered = 0;
                 finish();
             }
         }.start();
@@ -79,8 +85,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
         button7 = (Button) findViewById(R.id.buttonNum7);
         button8 = (Button) findViewById(R.id.buttonNum8);
         button9 = (Button) findViewById(R.id.buttonNum9);
-        buttonMinus = (Button) findViewById(R.id.buttonMinus);
-        buttonDot = (Button) findViewById(R.id.buttonDot);
         textQuestion = (TextView) findViewById(R.id.textQuestion);
 
 
@@ -90,7 +94,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "0");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -98,7 +101,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "1");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -106,7 +108,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "2");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -114,7 +115,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "3");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -122,7 +122,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "4");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -130,7 +129,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "5");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -138,7 +136,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "6");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -146,7 +143,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "7");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -154,7 +150,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "8");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -162,23 +157,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText(answerInput.getText() + "9");
-                buttonMinus.setEnabled(false);
-            }
-        });
-
-        buttonDot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                answerInput.setText(answerInput.getText() + ".");
-                buttonDot.setEnabled(false);
-            }
-        });
-
-        buttonMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                answerInput.setText(answerInput.getText() + "-");
-                buttonMinus.setEnabled(false);
             }
         });
 
@@ -186,8 +164,6 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 answerInput.setText("");
-                buttonMinus.setEnabled(true);
-                buttonDot.setEnabled(true);
             }
         });
 
@@ -196,7 +172,7 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
 
         rightAnswered = (TextView) findViewById(R.id.rightAnswered);
 
-        rightAnswered.setText("Pont: " + secClassAddPoints);
+        rightAnswered.setText("Pont: " + subPoints);
 
 
 
@@ -239,16 +215,25 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
 
         answerInput.setBackgroundResource(R.drawable.input_answer);
 
-        buttonMinus.setEnabled(true);
-        buttonDot.setEnabled(true);
+        int maxRandFirstNum = 20;
+        int maxRandSecNum = 9;
+        int minRandFirstNum = 2;
+        int minRandSecNum = 2;
 
-        int randFirstNum = 10;
-        int randSecNum = 10;
-        int firstNumber = new Random().nextInt(randFirstNum);
-        int secondNumber = new Random().nextInt(randSecNum);
+        int firstNumber = new Random().nextInt(maxRandFirstNum - minRandFirstNum + 1) + minRandFirstNum;
+        int secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
+        int previousSecondNumber = secondNumber;
 
-        realOperation = "+";
-        rightAnswer = firstNumber + secondNumber;
+        realOperation = "-";
+        rightAnswer = firstNumber - secondNumber;
+
+        while(firstNumber < secondNumber || secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1 || (firstNumber > 10 && rightAnswer > 9)) {
+            firstNumber = new Random().nextInt(maxRandFirstNum - minRandFirstNum + 1) + minRandFirstNum;
+            secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
+            rightAnswer = firstNumber - secondNumber;
+        }
+        previousSecondNumber = secondNumber;
+
         textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
 
 
@@ -261,19 +246,19 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
 
                 if(answerInput.getText() == null || answerInput.getText().equals("")) {
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
-                    secClassAddQuestionAnswered++;
+                    subQuestionAnswered++;
                 }
 
 
 
                 if (rightAnswer==answerNum){
                     answerInput.setBackgroundResource(R.drawable.right_answer_bg);
-                    secClassAddPoints++;
-                    secClassAddQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + secClassAddPoints);
+                    subPoints++;
+                    subQuestionAnswered++;
+                    rightAnswered.setText("Pont: " + subPoints);
                 }else {
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
-                    secClassAddQuestionAnswered++;
+                    subQuestionAnswered++;
                 }
 
 
@@ -296,8 +281,8 @@ public class SecClassQuestionsAddActivity extends AppCompatActivity{
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            secClassAddPoints = 0;
-            secClassAddQuestionAnswered = 0;
+            subPoints = 0;
+            subQuestionAnswered = 0;
             mMillisUntilFinished = 0;
             System.exit(0);
         }

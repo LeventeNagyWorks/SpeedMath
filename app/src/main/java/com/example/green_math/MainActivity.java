@@ -2,7 +2,9 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -13,23 +15,23 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    boolean secClassSelected = false;
+    boolean thirdClassSelected = false;
+    boolean fourthClassSelected = false;
+    boolean fifthClassSelected = false;
+    boolean sixthClassSelected = false;
+    boolean seventhClassSelected = false;
+    boolean eighthClassSelected = false;
+    boolean ninethClassSelected = false;
+
+    SharedPreferences spClassSelect;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-//        View decorView = getWindow().getDecorView();
-//        // Hide both the navigation bar and the status bar.
-//        // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-//        // a general rule, you should design your app to hide the status bar whenever you
-//        // hide the navigation bar.
-//        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-//                | View.SYSTEM_UI_FLAG_FULLSCREEN;
-//        decorView.setSystemUiVisibility(uiOptions);
-
-
+        spClassSelect = getSharedPreferences("classSelect", Context.MODE_PRIVATE);
 
         Button button_exit = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.button_exit);
         button_exit.setOnClickListener(new OnClickListener() {
@@ -46,12 +48,207 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecClassActivity.class);
+                secClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
                 startActivity(intent);
             }
         });
 
 
+        Button button_third = (Button) findViewById(R.id.button_third);
+        button_third.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                thirdClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button button_fourth = (Button) findViewById(R.id.button_fourth);
+        button_fourth.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                fourthClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button button_fifth = (Button) findViewById(R.id.button_fifth);
+        button_fifth.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                fifthClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button button_sixth = (Button) findViewById(R.id.button_sixth);
+        button_sixth.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                sixthClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button button_seventh = (Button) findViewById(R.id.button_seventh);
+        button_seventh.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                seventhClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button button_eigth = (Button) findViewById(R.id.button_eigth);
+        button_eigth.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                eighthClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button button_nineth = (Button) findViewById(R.id.button_nineth);
+        button_nineth.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                ninethClassSelected = true;
+
+                SharedPreferences.Editor editor = spClassSelect.edit();
+
+                editor.putBoolean("secClassSelected", secClassSelected);
+                editor.putBoolean("thirdClassSelected", thirdClassSelected);
+                editor.putBoolean("fourthClassSelected", fourthClassSelected);
+                editor.putBoolean("fifthClassSelected", fifthClassSelected);
+                editor.putBoolean("sixthClassSelected", sixthClassSelected);
+                editor.putBoolean("seventhClassSelected", seventhClassSelected);
+                editor.putBoolean("eighthClassSelected", eighthClassSelected);
+                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, TaskDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

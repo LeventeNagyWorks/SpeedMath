@@ -9,42 +9,56 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Green_math">
         <activity
-            android:name=".SecClassFinishActivity"
+            android:name=".AdmixResultActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecClassSubResultActivity"
+            android:name=".QuestionsAdmixActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecClassQuestionsSubActivity"
+            android:name=".FinishActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecClassAddResultActivity"
+            android:name=".SubResultActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecClassQuestionsAddActivity"
+            android:name=".QuestionsSubActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecClassActivity"
+            android:name=".AddResultActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".QuestionsAddActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TaskDescriptionActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

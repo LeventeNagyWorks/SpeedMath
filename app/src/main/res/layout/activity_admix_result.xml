@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#2e2e2e"
-    tools:context=".SecClassFinishActivity">
+    tools:context=".AdmixResultActivity">
 
     <TextView
         android:layout_width="350dp"
         android:layout_height="90dp"
-        android:text="Kiértékelés"
+        android:text="Pótlás"
         android:textColor="@android:color/white"
         android:textSize="55dp"
         android:textStyle="bold"
@@ -62,31 +62,18 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonBackMain"
+        android:id="@+id/buttonToMult"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_marginTop="0dp"
-        android:background="@drawable/num_keyboard"
-        android:text="Vissza"
+        android:background="@drawable/scoreboard_next"
+        android:text="Tovább"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:gravity="center"
         />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_exit"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_back"
-        android:gravity="center"
-        android:text="Kilépés"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
 
 </LinearLayout>

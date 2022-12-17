@@ -6,7 +6,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
 android:background="#2e2e2e"
-tools:context=".SecClassSubResultActivity">
+tools:context=".SubResultActivity">
 
 <TextView
     android:layout_width="350dp"
@@ -62,7 +62,7 @@ tools:context=".SecClassSubResultActivity">
 </LinearLayout>
 
 <androidx.appcompat.widget.AppCompatButton
-    android:id="@+id/secClassToFinish"
+    android:id="@+id/buttonToAdmix"
     android:layout_width="200dp"
     android:layout_height="60dp"
     android:layout_marginTop="0dp"

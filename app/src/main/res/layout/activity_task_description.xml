@@ -5,37 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2e2e2e"
-    tools:context=".SecClassActivity">
-
+    tools:context=".TaskDescriptionActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textClass"
         android:layout_width="354dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="84dp"
+        android:layout_marginEnd="28dp"
         android:gravity="center"
-        android:text="Feladat Leírás"
+        android:text="Osztály"
         android:textColor="@android:color/white"
         android:textSize="45dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="Feladat Leírás"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textClass" />
+
+    <TextView
         android:id="@+id/text_guide"
-        android:layout_width="304dp"
-        android:layout_height="173dp"
+        android:layout_width="315dp"
+        android:layout_height="180dp"
         android:layout_gravity="center_vertical|end"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="36dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="Feladat típusunként 1 perce van válaszolni a kérdésekre. Próbáljon meg egy perc alatt minél több kérdésre válaszolni. A típusok között tarthat szünetet, ha igényli."
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -59,20 +76,6 @@
         app:layout_constraintTop_toBottomOf="@+id/text_guide"
         app:layout_constraintVertical_bias="0.261"
         tools:ignore="OnClick" />
-
-    <!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/button_back"-->
-<!--        android:layout_width="147dp"-->
-<!--        android:layout_height="56dp"-->
-<!--        android:layout_marginBottom="52dp"-->
-<!--        android:background="@drawable/button_back"-->
-<!--        android:textStyle="bold"-->
-<!--        android:text="VISSZA"-->
-<!--        android:textSize="15sp"-->
-<!--        android:textColor="@color/white"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
