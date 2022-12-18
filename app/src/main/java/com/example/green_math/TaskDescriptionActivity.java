@@ -14,10 +14,8 @@ import android.widget.TextView;
 
 public class TaskDescriptionActivity extends AppCompatActivity {
 
-    public Button start_button2;
-
     boolean secClassSelected, thirdClassSelected, fourthClassSelected, fifthClassSelected,
-            sixthClassSelected, seventhClassSelected, eighthClassSelected, ninethClassSelected;
+            sixthClassSelected, seventhClassSelected, eighthClassSelected, ninthClassSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,7 @@ public class TaskDescriptionActivity extends AppCompatActivity {
 
         TextView textClass = (TextView) findViewById(R.id.textClass);
 
-        SharedPreferences spClassSelect = getApplicationContext().getSharedPreferences("classSelect", Context.MODE_PRIVATE);
+        SharedPreferences spClassSelect = getApplicationContext().getSharedPreferences("ClassSelect", Context.MODE_PRIVATE);
         secClassSelected = spClassSelect.getBoolean("secClassSelected", false);
         thirdClassSelected = spClassSelect.getBoolean("thirdClassSelected", false);
         fourthClassSelected = spClassSelect.getBoolean("fourthClassSelected", false);
@@ -34,12 +32,12 @@ public class TaskDescriptionActivity extends AppCompatActivity {
         sixthClassSelected = spClassSelect.getBoolean("sixthClassSelected", false);
         seventhClassSelected = spClassSelect.getBoolean("seventhClassSelected", false);
         eighthClassSelected = spClassSelect.getBoolean("eighthClassSelected", false);
-        ninethClassSelected = spClassSelect.getBoolean("ninethClassSelected", false);
+        ninthClassSelected = spClassSelect.getBoolean("ninthClassSelected", false);
 
-        if (secClassSelected) {
+        if (secClassSelected == true) {
             textClass.setText("2️⃣. Osztály");
         }
-        if (thirdClassSelected) {
+        if (thirdClassSelected == true) {
             textClass.setText("3️⃣. Osztály");
         }
         if (fourthClassSelected) {
@@ -57,7 +55,7 @@ public class TaskDescriptionActivity extends AppCompatActivity {
         if (eighthClassSelected) {
             textClass.setText("8️⃣. Osztály");
         }
-        if (ninethClassSelected) {
+        if (ninthClassSelected) {
             textClass.setText("9️⃣. Osztály");
         }
 
@@ -85,7 +83,7 @@ public class TaskDescriptionActivity extends AppCompatActivity {
             sixthClassSelected = false;
             seventhClassSelected = false;
             eighthClassSelected = false;
-            ninethClassSelected = false;
+            ninthClassSelected = false;
 
             System.exit(0);
         }

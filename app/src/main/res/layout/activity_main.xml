@@ -50,8 +50,8 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_nineth"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/button_ninth"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -85,7 +85,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_nineth"
+        android:id="@+id/button_ninth"
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginEnd="36dp"
@@ -107,7 +107,7 @@
         android:text="7. osztály"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_nineth"
+        app:layout_constraintBottom_toTopOf="@+id/button_ninth"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton

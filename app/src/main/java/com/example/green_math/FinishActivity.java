@@ -45,8 +45,8 @@ public class FinishActivity extends AppCompatActivity {
         subQuestionAnswered = sp2.getInt("SubQuestionAnswered", -1);
 
         SharedPreferences sp3 = getApplicationContext().getSharedPreferences("AdmixResults", Context.MODE_PRIVATE);
-        admixPoints = sp2.getInt("AdmixPoints", -1);
-        admixQuestionAnswered = sp2.getInt("AdmixQuestionAnswered", -1);
+        admixPoints = sp3.getInt("AdmixPoints", -1);
+        admixQuestionAnswered = sp3.getInt("AdmixQuestionAnswered", -1);
 
 
         allPoints = addPoints + subPoints + admixPoints;

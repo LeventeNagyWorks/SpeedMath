@@ -1,17 +1,5 @@
 <resources>
-    <string name="app_name">GreenMath</string>
-    <string-array name="classesArray">
-        <item>2. osztály</item>
-        <item>3. osztály</item>
-        <item>4. osztály</item>
-        <item>5. osztály</item>
-        <item>6. osztály</item>
-        <item>7. osztály</item>
-        <item>8. osztály</item>
-        <item>1. osztály</item>
-        <item>9. o. gimn./szakközépisk.</item>
-        <item>9. o. szakisk.</item>
-    </string-array>
+    <string name="app_name">SpeedMath</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.view.KeyEvent;
 import android.view.View;
 
 import android.view.View.OnClickListener;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     boolean sixthClassSelected = false;
     boolean seventhClassSelected = false;
     boolean eighthClassSelected = false;
-    boolean ninethClassSelected = false;
+    boolean ninthClassSelected = false;
 
     SharedPreferences spClassSelect;
 
@@ -31,13 +32,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spClassSelect = getSharedPreferences("classSelect", Context.MODE_PRIVATE);
+        spClassSelect = getSharedPreferences("ClassSelect", Context.MODE_PRIVATE);
 
         Button button_exit = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.button_exit);
         button_exit.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                secClassSelected = false;
+                thirdClassSelected = false;
+                fourthClassSelected = false;
+                fifthClassSelected = false;
+                sixthClassSelected = false;
+                seventhClassSelected = false;
+                eighthClassSelected = false;
+                ninthClassSelected = false;
                 finishAndRemoveTask();
                 System.exit(0);
             }
@@ -52,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = spClassSelect.edit();
 
+
                 editor.putBoolean("secClassSelected", secClassSelected);
                 editor.putBoolean("thirdClassSelected", thirdClassSelected);
                 editor.putBoolean("fourthClassSelected", fourthClassSelected);
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -78,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = spClassSelect.edit();
 
+
                 editor.putBoolean("secClassSelected", secClassSelected);
                 editor.putBoolean("thirdClassSelected", thirdClassSelected);
                 editor.putBoolean("fourthClassSelected", fourthClassSelected);
@@ -85,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -104,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = spClassSelect.edit();
 
+
                 editor.putBoolean("secClassSelected", secClassSelected);
                 editor.putBoolean("thirdClassSelected", thirdClassSelected);
                 editor.putBoolean("fourthClassSelected", fourthClassSelected);
@@ -111,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -137,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -163,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -189,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -215,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -225,12 +237,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button button_nineth = (Button) findViewById(R.id.button_nineth);
+        Button button_nineth = (Button) findViewById(R.id.button_ninth);
         button_nineth.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                ninethClassSelected = true;
+                ninthClassSelected = true;
 
                 SharedPreferences.Editor editor = spClassSelect.edit();
 
@@ -241,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("sixthClassSelected", sixthClassSelected);
                 editor.putBoolean("seventhClassSelected", seventhClassSelected);
                 editor.putBoolean("eighthClassSelected", eighthClassSelected);
-                editor.putBoolean("ninethClassSelected", ninethClassSelected);
+                editor.putBoolean("ninthClassSelected", ninthClassSelected);
 
                 editor.commit();
 
@@ -250,5 +262,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+
+            secClassSelected = false;
+            thirdClassSelected = false;
+            fourthClassSelected = false;
+            fifthClassSelected = false;
+            sixthClassSelected = false;
+            seventhClassSelected = false;
+            eighthClassSelected = false;
+            ninthClassSelected = false;
+
+            System.exit(0);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
