@@ -8,15 +8,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class FinishActivity extends AppCompatActivity {
 
     TextView textResult;
     TextView questionAnswered;
+    TextView textClassLevelResult;
+    TextView textClass;
+    LinearLayout backgroundScoreboard2;
 
     int allPoints;
     int allQuestionAnswered;
+    int allClassLevelPoints;
 
     int addQuestionAnswered;
     int addPoints;
@@ -26,6 +31,21 @@ public class FinishActivity extends AppCompatActivity {
 
     int admixQuestionAnswered;
     int admixPoints;
+
+    int multQuestionAnswered;
+    int multPoints;
+
+    int divQuestionAnswered;
+    int divPoints;
+
+    boolean secClassSelected = false;
+    boolean thirdClassSelected = false;
+    boolean fourthClassSelected = false;
+    boolean fifthClassSelected = false;
+    boolean sixthClassSelected = false;
+    boolean seventhClassSelected = false;
+    boolean eighthClassSelected = false;
+    boolean ninthClassSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +68,106 @@ public class FinishActivity extends AppCompatActivity {
         admixPoints = sp3.getInt("AdmixPoints", -1);
         admixQuestionAnswered = sp3.getInt("AdmixQuestionAnswered", -1);
 
+        SharedPreferences sp4 = getApplicationContext().getSharedPreferences("MultResults", Context.MODE_PRIVATE);
+        multPoints = sp4.getInt("MultPoints", -1);
+        multQuestionAnswered = sp4.getInt("MultQuestionAnswered", -1);
 
-        allPoints = addPoints + subPoints + admixPoints;
-        allQuestionAnswered = addQuestionAnswered + subQuestionAnswered + admixQuestionAnswered;
+        SharedPreferences sp5 = getApplicationContext().getSharedPreferences("DivResults", Context.MODE_PRIVATE);
+        divPoints = sp5.getInt("DivPoints", -1);
+        divQuestionAnswered = sp5.getInt("DivQuestionAnswered", -1);
+
+
+        allPoints = addPoints + subPoints + admixPoints + multPoints + divPoints;
+        allQuestionAnswered = addQuestionAnswered + subQuestionAnswered + admixQuestionAnswered + multQuestionAnswered + divQuestionAnswered;
 
         textResult.setText("Pont: " + allPoints);
         questionAnswered.setText("Megoldva: " + allQuestionAnswered);
+
+
+        SharedPreferences spClassSelect = getApplicationContext().getSharedPreferences("ClassSelect", Context.MODE_PRIVATE);
+        secClassSelected = spClassSelect.getBoolean("secClassSelected", false);
+        thirdClassSelected = spClassSelect.getBoolean("thirdClassSelected", false);
+        fourthClassSelected = spClassSelect.getBoolean("fourthClassSelected", false);
+        fifthClassSelected = spClassSelect.getBoolean("fifthClassSelected", false);
+        sixthClassSelected = spClassSelect.getBoolean("sixthClassSelected", false);
+        seventhClassSelected = spClassSelect.getBoolean("seventhClassSelected", false);
+        eighthClassSelected = spClassSelect.getBoolean("eighthClassSelected", false);
+        ninthClassSelected = spClassSelect.getBoolean("ninthClassSelected", false);
+
+        textClass = findViewById(R.id.textClass);
+
+        if (secClassSelected) {
+            textClass.setText("2️⃣. Osztály");
+            allClassLevelPoints = 35;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
+        if (thirdClassSelected) {
+            textClass.setText("3️⃣. Osztály");
+            allClassLevelPoints = 62;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
+        if (fourthClassSelected) {
+            textClass.setText("4️⃣. Osztály");
+            allClassLevelPoints = 85;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
+        if (fifthClassSelected) {
+            textClass.setText("5️⃣. Osztály");
+            allClassLevelPoints = 97;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
+        if (sixthClassSelected) {
+            textClass.setText("6️⃣. Osztály");
+            allClassLevelPoints = 108;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
+        if (seventhClassSelected) {
+            textClass.setText("7️⃣. Osztály");
+            allClassLevelPoints = 119;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
+        if (eighthClassSelected) {
+            textClass.setText("8️⃣ Osztály");
+            allClassLevelPoints = 134;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
+        if (ninthClassSelected) {
+            textClass.setText("9️⃣. Osztály");
+            allClassLevelPoints = 160;
+            if (allPoints < allClassLevelPoints) {
+                textClassLevelResult.setText("Nem sikerült teljesíteni");
+                textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
+                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
+            }
+        }
 
 
         Button buttonBackMain = (Button) findViewById(R.id.buttonBackMain);

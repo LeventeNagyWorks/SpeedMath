@@ -13,17 +13,17 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class AdmixResultActivity extends AppCompatActivity {
+public class MultResultActivity extends AppCompatActivity {
 
 
     TextView textResult;
     TextView questionAnswered;
     TextView textClassLevelResult;
-    Button buttonToMult;
+    Button buttonToDiv;
     LinearLayout backgroundScoreboard2;
 
-    int admixPoints;
-    int admixQuestionAnswered;
+    int multPoints;
+    int multQuestionAnswered;
 
     boolean secClassSelected = false;
     boolean thirdClassSelected = false;
@@ -40,20 +40,20 @@ public class AdmixResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admix_result);
+        setContentView(R.layout.activity_mult_result);
 
 
 
-        admixPoints = getIntent().getIntExtra("AdmixPont", 0);
-        admixQuestionAnswered = getIntent().getIntExtra("AdmixFeladatDb", 0);
+        multPoints = getIntent().getIntExtra("MultPont", 0);
+        multQuestionAnswered = getIntent().getIntExtra("MultFeladatDb", 0);
         textResult = findViewById(R.id.textResult);
         questionAnswered = findViewById(R.id.textQuestionAnswered);
 
-        textResult.setText("Pont: " + admixPoints);
-        questionAnswered.setText("Megoldva: " + admixQuestionAnswered);
+        textResult.setText("Pont: " + multPoints);
+        questionAnswered.setText("Megoldva: " + multQuestionAnswered);
 
 
-        sp = getSharedPreferences("AdmixResults", Context.MODE_PRIVATE);
+        sp = getSharedPreferences("MultResults", Context.MODE_PRIVATE);
 
 
         SharedPreferences spClassSelect = getApplicationContext().getSharedPreferences("ClassSelect", Context.MODE_PRIVATE);
@@ -72,8 +72,8 @@ public class AdmixResultActivity extends AppCompatActivity {
         int classLevelPoints;
 
         if (secClassSelected) {
-            classLevelPoints = 7;
-            if (admixPoints < classLevelPoints) {
+            classLevelPoints = 6;
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
@@ -81,55 +81,55 @@ public class AdmixResultActivity extends AppCompatActivity {
         }
         if (thirdClassSelected) {
             classLevelPoints = 12;
-            if (admixPoints < classLevelPoints) {
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
             }
         }
         if (fourthClassSelected) {
-            classLevelPoints = 16;
-            if (admixPoints < classLevelPoints) {
+            classLevelPoints = 20;
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
             }
         }
         if (fifthClassSelected) {
-            classLevelPoints = 18;
-            if (admixPoints < classLevelPoints) {
+            classLevelPoints = 22;
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
             }
         }
         if (sixthClassSelected) {
-            classLevelPoints = 19;
-            if (admixPoints < classLevelPoints) {
+            classLevelPoints = 24;
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
             }
         }
         if (seventhClassSelected) {
-            classLevelPoints = 21;
-            if (admixPoints < classLevelPoints) {
+            classLevelPoints = 27;
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
             }
         }
         if (eighthClassSelected) {
-            classLevelPoints = 24;
-            if (admixPoints < classLevelPoints) {
+            classLevelPoints = 29;
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
             }
         }
         if (ninthClassSelected) {
-            classLevelPoints = 27;
-            if (admixPoints < classLevelPoints) {
+            classLevelPoints = 35;
+            if (multPoints < classLevelPoints) {
                 textClassLevelResult.setText("Nem sikerült teljesíteni");
                 textClassLevelResult.setBackgroundResource(R.drawable.wrong_answer_bg);
                 backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
@@ -138,19 +138,19 @@ public class AdmixResultActivity extends AppCompatActivity {
 
 
 
-        buttonToMult = (Button) findViewById(R.id.buttonToMult);
-        buttonToMult.setOnClickListener(new View.OnClickListener() {
+        buttonToDiv = (Button) findViewById(R.id.buttonToDiv);
+        buttonToDiv.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                editor.putInt("AdmixPoints", admixPoints);
-                editor.putInt("AdmixQuestionAnswered", admixQuestionAnswered);
+                editor.putInt("MultPoints", multPoints);
+                editor.putInt("MultQuestionAnswered", multQuestionAnswered);
                 editor.commit();
 
-                Intent intent = new Intent(AdmixResultActivity.this, QuestionsMultActivity.class);
+                Intent intent = new Intent(MultResultActivity.this, QuestionsDivActivity.class);
                 startActivity(intent);
             }
         });

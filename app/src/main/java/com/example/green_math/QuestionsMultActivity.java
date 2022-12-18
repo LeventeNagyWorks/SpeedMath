@@ -34,7 +34,7 @@ public class QuestionsMultActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 30000; //1 min = 60000
+    long mMillisUntilFinished = 60000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class QuestionsMultActivity extends AppCompatActivity{
             public void onFinish() {
                 countTime.setText("Vége");
 
-                Intent intent = new Intent(QuestionsMultActivity.this, AddResultActivity.class);
+                Intent intent = new Intent(QuestionsMultActivity.this, MultResultActivity.class);
                 intent.putExtra("MultPont", multPoints);
                 intent.putExtra("MultFeladatDb", multQuestionAnswered);
                 startActivity(intent);
@@ -195,12 +195,12 @@ public class QuestionsMultActivity extends AppCompatActivity{
 
 
         if (mMillisUntilFinished > 0){
-            getARandomAddQuestion();
+            getARandomMultQuestion();
         }
 
     }
 
-    private void getARandomAddQuestion() {
+    private void getARandomMultQuestion() {
 
         answerInput.setBackgroundResource(R.drawable.input_answer);
 
@@ -218,11 +218,10 @@ public class QuestionsMultActivity extends AppCompatActivity{
 
         while (secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1) {
             secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
+            rightAnswer = firstNumber * secondNumber;
         }
 
         previousSecondNumber = secondNumber;
-        rightAnswer = firstNumber * secondNumber;
-
         textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
 
 
@@ -257,7 +256,7 @@ public class QuestionsMultActivity extends AppCompatActivity{
                     public void run() {
 
                         if (mMillisUntilFinished > 0) {
-                            getARandomAddQuestion();
+                            getARandomMultQuestion();
                         }
 
                     }

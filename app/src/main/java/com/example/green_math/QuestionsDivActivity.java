@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class QuestionsSubActivity extends AppCompatActivity{
-    public int counter;
+public class QuestionsDivActivity extends AppCompatActivity{
 
+    int counter;
 
     Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -29,24 +29,17 @@ public class QuestionsSubActivity extends AppCompatActivity{
     private static String answerStr;
     private static double answerNum;
 
-    public static int subPoints = 0;
-    public static int subQuestionAnswered = 0;
-    int addPoints = 0;
-    int addQuestionAnswered = 0;
-
-
+    int divPoints = 0;
+    int divQuestionAnswered = 0;
     String realOperation = "";
     double rightAnswer = 0;
-
-
 
     long mMillisUntilFinished = 60000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions_sub);
-
+        setContentView(R.layout.activity_questions_div);
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
         new CountDownTimer(mMillisUntilFinished,1000) {
@@ -58,14 +51,13 @@ public class QuestionsSubActivity extends AppCompatActivity{
             @Override
             public void onFinish() {
                 countTime.setText("Vége");
-                
-                Intent intent = new Intent(QuestionsSubActivity.this, SubResultActivity.class);
-                intent.putExtra("SubPont", subPoints);
-                intent.putExtra("SubFeladatDb", subQuestionAnswered);
-                startActivity(intent);
 
-                subPoints = 0;
-                subQuestionAnswered = 0;
+                Intent intent = new Intent(QuestionsDivActivity.this, DivResultActivity.class);
+                intent.putExtra("DivPont", divPoints);
+                intent.putExtra("DivFeladatDb", divQuestionAnswered);
+                startActivity(intent);
+                divPoints = 0;
+                divQuestionAnswered = 0;
                 finish();
             }
         }.start();
@@ -167,10 +159,10 @@ public class QuestionsSubActivity extends AppCompatActivity{
             }
         });
 
-        
+
         rightAnswered = (TextView) findViewById(R.id.rightAnswered);
 
-        rightAnswered.setText("Pont: " + subPoints);
+        rightAnswered.setText("Pont: " + divPoints);
 
 
 
@@ -180,13 +172,12 @@ public class QuestionsSubActivity extends AppCompatActivity{
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if(s.toString().trim().length()==0 || s.toString().contains(".-") || s.toString().contains("-.")){
+                if(s.toString().trim().length()==0 || s.toString().contains(".-") || s.toString().contains("-.") || s.toString().equals("-") || s.toString().equals(".")){
                     buttonSubmit.setEnabled(false);
                 } else {
                     buttonSubmit.setEnabled(true);
                 }
             }
-
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count,
@@ -204,16 +195,16 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
 
         if (mMillisUntilFinished > 0){
-            getARandomSubQuestion();
+            getARandomDivQuestion();
         }
 
     }
 
-    private void getARandomSubQuestion() {
+    private void getARandomDivQuestion() {
 
         answerInput.setBackgroundResource(R.drawable.input_answer);
 
-        int maxRandFirstNum = 20;
+        int maxRandFirstNum = 99;
         int maxRandSecNum = 9;
         int minRandFirstNum = 2;
         int minRandSecNum = 2;
@@ -222,17 +213,25 @@ public class QuestionsSubActivity extends AppCompatActivity{
         int secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
         int previousSecondNumber = secondNumber;
 
-        realOperation = "-";
-        rightAnswer = firstNumber - secondNumber;
+        realOperation = "/";
+        rightAnswer = firstNumber / secondNumber;
 
-        while(firstNumber < secondNumber || secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1 || (firstNumber > 10 && rightAnswer >= 9)) {
+        String rightAnswerStr = String.valueOf((int) rightAnswer);
+
+        while (secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1 || (firstNumber % secondNumber != 0 || rightAnswerStr.contains("0"))) {
             firstNumber = new Random().nextInt(maxRandFirstNum - minRandFirstNum + 1) + minRandFirstNum;
             secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
-            rightAnswer = firstNumber - secondNumber;
+            rightAnswer = firstNumber / secondNumber;
+            rightAnswerStr = String.valueOf((int) rightAnswer);
+
         }
+
+        rightAnswer = firstNumber / secondNumber;
+        rightAnswerStr = String.valueOf((int) rightAnswer);
         previousSecondNumber = secondNumber;
 
         textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
+
 
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -244,19 +243,19 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
                 if(answerInput.getText() == null || answerInput.getText().equals("")) {
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
-                    subQuestionAnswered++;
+                    divQuestionAnswered++;
                 }
 
 
 
-                if (rightAnswer==answerNum){
+                if (rightAnswer == answerNum){
                     answerInput.setBackgroundResource(R.drawable.right_answer_bg);
-                    subPoints++;
-                    subQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + subPoints);
+                    divPoints++;
+                    divQuestionAnswered++;
+                    rightAnswered.setText("Pont: " + divPoints);
                 }else {
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
-                    subQuestionAnswered++;
+                    divQuestionAnswered++;
                 }
 
 
@@ -265,7 +264,7 @@ public class QuestionsSubActivity extends AppCompatActivity{
                     public void run() {
 
                         if (mMillisUntilFinished > 0) {
-                            getARandomSubQuestion();
+                            getARandomDivQuestion();
                         }
 
                     }
@@ -279,8 +278,8 @@ public class QuestionsSubActivity extends AppCompatActivity{
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            subPoints = 0;
-            subQuestionAnswered = 0;
+            divPoints = 0;
+            divQuestionAnswered = 0;
             mMillisUntilFinished = 0;
             System.exit(0);
         }

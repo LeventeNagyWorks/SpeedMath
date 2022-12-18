@@ -34,7 +34,7 @@ public class QuestionsAddActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 1000; //1 min = 60000
+    long mMillisUntilFinished = 60000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

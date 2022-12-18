@@ -34,7 +34,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 20000; //1 min = 60000
+    long mMillisUntilFinished = 60000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -222,7 +222,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
         realOperation = "+";
         rightAnswer = firstNumber - secondNumber;
 
-        while(firstNumber < secondNumber || secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1 || rightAnswer > 9) {
+        while(firstNumber < secondNumber || secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1 || rightAnswer >= 9) {
             firstNumber = new Random().nextInt(maxRandFirstNum - minRandFirstNum + 1) + minRandFirstNum;
             secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
             rightAnswer = firstNumber - secondNumber;
