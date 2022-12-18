@@ -9,6 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Green_math">
         <activity
+            android:name=".QuestionsMultActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AdmixResultActivity"
             android:exported="false">
             <meta-data

@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class QuestionsAddActivity extends AppCompatActivity{
-    public int counter;
+public class QuestionsMultActivity extends AppCompatActivity{
 
+    int counter;
 
     Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -29,19 +29,17 @@ public class QuestionsAddActivity extends AppCompatActivity{
     private static String answerStr;
     private static double answerNum;
 
-    int addPoints = 0;
-    int addQuestionAnswered = 0;
+    int multPoints = 0;
+    int multQuestionAnswered = 0;
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 1000; //1 min = 60000
+    long mMillisUntilFinished = 30000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions_add);
-
-
+        setContentView(R.layout.activity_questions_mult);
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
         new CountDownTimer(mMillisUntilFinished,1000) {
@@ -54,12 +52,12 @@ public class QuestionsAddActivity extends AppCompatActivity{
             public void onFinish() {
                 countTime.setText("Vége");
 
-                Intent intent = new Intent(QuestionsAddActivity.this, AddResultActivity.class);
-                intent.putExtra("AddPont", addPoints);
-                intent.putExtra("AddFeladatDb", addQuestionAnswered);
+                Intent intent = new Intent(QuestionsMultActivity.this, AddResultActivity.class);
+                intent.putExtra("MultPont", multPoints);
+                intent.putExtra("MultFeladatDb", multQuestionAnswered);
                 startActivity(intent);
-                addPoints = 0;
-                addQuestionAnswered = 0;
+                multPoints = 0;
+                multQuestionAnswered = 0;
                 finish();
             }
         }.start();
@@ -164,7 +162,7 @@ public class QuestionsAddActivity extends AppCompatActivity{
 
         rightAnswered = (TextView) findViewById(R.id.rightAnswered);
 
-        rightAnswered.setText("Pont: " + addPoints);
+        rightAnswered.setText("Pont: " + multPoints);
 
 
 
@@ -180,7 +178,6 @@ public class QuestionsAddActivity extends AppCompatActivity{
                     buttonSubmit.setEnabled(true);
                 }
             }
-
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count,
@@ -216,15 +213,15 @@ public class QuestionsAddActivity extends AppCompatActivity{
         int secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
         int previousSecondNumber = secondNumber;
 
-        realOperation = "+";
-        rightAnswer = firstNumber + secondNumber;
+        realOperation = "*";
+        rightAnswer = firstNumber * secondNumber;
 
         while (secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1) {
             secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
         }
 
         previousSecondNumber = secondNumber;
-        rightAnswer = firstNumber + secondNumber;
+        rightAnswer = firstNumber * secondNumber;
 
         textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
 
@@ -239,19 +236,19 @@ public class QuestionsAddActivity extends AppCompatActivity{
 
                 if(answerInput.getText() == null || answerInput.getText().equals("")) {
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
-                    addQuestionAnswered++;
+                    multQuestionAnswered++;
                 }
 
 
 
-                if (rightAnswer==answerNum){
+                if (rightAnswer == answerNum){
                     answerInput.setBackgroundResource(R.drawable.right_answer_bg);
-                    addPoints++;
-                    addQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + addPoints);
+                    multPoints++;
+                    multQuestionAnswered++;
+                    rightAnswered.setText("Pont: " + multPoints);
                 }else {
                     answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
-                    addQuestionAnswered++;
+                    multQuestionAnswered++;
                 }
 
 
@@ -274,8 +271,8 @@ public class QuestionsAddActivity extends AppCompatActivity{
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            addPoints = 0;
-            addQuestionAnswered = 0;
+            multPoints = 0;
+            multQuestionAnswered = 0;
             mMillisUntilFinished = 0;
             System.exit(0);
         }

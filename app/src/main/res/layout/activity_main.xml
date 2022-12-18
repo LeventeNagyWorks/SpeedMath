@@ -90,7 +90,7 @@
         android:layout_height="51dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="172dp"
-        android:background="@drawable/button_secondary_class"
+        android:background="@drawable/button_primary_class"
         android:text="9. o. gimn./szakközépisk."
         android:textColor="@color/white"
         android:textSize="15sp"

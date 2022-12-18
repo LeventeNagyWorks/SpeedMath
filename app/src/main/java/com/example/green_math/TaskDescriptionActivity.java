@@ -34,10 +34,10 @@ public class TaskDescriptionActivity extends AppCompatActivity {
         eighthClassSelected = spClassSelect.getBoolean("eighthClassSelected", false);
         ninthClassSelected = spClassSelect.getBoolean("ninthClassSelected", false);
 
-        if (secClassSelected == true) {
+        if (secClassSelected) {
             textClass.setText("2️⃣. Osztály");
         }
-        if (thirdClassSelected == true) {
+        if (thirdClassSelected) {
             textClass.setText("3️⃣. Osztály");
         }
         if (fourthClassSelected) {
