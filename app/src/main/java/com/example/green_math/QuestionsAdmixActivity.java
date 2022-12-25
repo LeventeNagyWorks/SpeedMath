@@ -34,7 +34,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 60000; //1 min = 60000
+    long mMillisUntilFinished = 10000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -229,7 +229,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
         }
         previousSecondNumber = secondNumber;
 
-        textQuestion.setText(secondNumber + " " + realOperation +  " ? = " + firstNumber);
+        textQuestion.setText(secondNumber + " " + realOperation +  " 🔳 = " + firstNumber);
 
 
 

@@ -40,7 +40,7 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
 
 
-    long mMillisUntilFinished = 60000; //1 min = 60000
+    long mMillisUntilFinished = 1000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -146,8 +146,8 @@ public class DivResultActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                editor.putInt("divPoints", divPoints);
-                editor.putInt("divQuestionAnswered", divQuestionAnswered);
+                editor.putInt("DivPoints", divPoints);
+                editor.putInt("DivQuestionAnswered", divQuestionAnswered);
                 editor.commit();
 
                 Intent intent = new Intent(DivResultActivity.this, FinishActivity.class);

@@ -34,7 +34,7 @@ public class QuestionsAddActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 60000; //1 min = 60000
+    long mMillisUntilFinished = 1000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,11 +221,11 @@ public class QuestionsAddActivity extends AppCompatActivity{
 
         while (secondNumber == previousSecondNumber || rightAnswer == 0 || rightAnswer == 1) {
             secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
+            firstNumber = new Random().nextInt(maxRandFirstNum - minRandFirstNum + 1) + minRandFirstNum;
+            rightAnswer = firstNumber + secondNumber;
         }
 
         previousSecondNumber = secondNumber;
-        rightAnswer = firstNumber + secondNumber;
-
         textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
 
 

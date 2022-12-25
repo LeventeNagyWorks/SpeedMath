@@ -85,16 +85,19 @@ public class FinishActivity extends AppCompatActivity {
 
 
         SharedPreferences spClassSelect = getApplicationContext().getSharedPreferences("ClassSelect", Context.MODE_PRIVATE);
-        secClassSelected = spClassSelect.getBoolean("secClassSelected", false);
-        thirdClassSelected = spClassSelect.getBoolean("thirdClassSelected", false);
-        fourthClassSelected = spClassSelect.getBoolean("fourthClassSelected", false);
-        fifthClassSelected = spClassSelect.getBoolean("fifthClassSelected", false);
-        sixthClassSelected = spClassSelect.getBoolean("sixthClassSelected", false);
-        seventhClassSelected = spClassSelect.getBoolean("seventhClassSelected", false);
-        eighthClassSelected = spClassSelect.getBoolean("eighthClassSelected", false);
-        ninthClassSelected = spClassSelect.getBoolean("ninthClassSelected", false);
+
+        secClassSelected = spClassSelect.getBoolean("secClassSelected", secClassSelected);
+        thirdClassSelected = spClassSelect.getBoolean("thirdClassSelected", thirdClassSelected);
+        fourthClassSelected = spClassSelect.getBoolean("fourthClassSelected", fourthClassSelected);
+        fifthClassSelected = spClassSelect.getBoolean("fifthClassSelected", fifthClassSelected);
+        sixthClassSelected = spClassSelect.getBoolean("sixthClassSelected", sixthClassSelected);
+        seventhClassSelected = spClassSelect.getBoolean("seventhClassSelected", seventhClassSelected);
+        eighthClassSelected = spClassSelect.getBoolean("eighthClassSelected", eighthClassSelected);
+        ninthClassSelected = spClassSelect.getBoolean("ninthClassSelected", ninthClassSelected);
 
         textClass = findViewById(R.id.textClass);
+        backgroundScoreboard2 = findViewById(R.id.backgroundScoreboard2);
+        textClassLevelResult = findViewById(R.id.textClassLevelResult);
 
         if (secClassSelected) {
             textClass.setText("2️⃣. Osztály");

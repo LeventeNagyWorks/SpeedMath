@@ -78,13 +78,15 @@ tools:context=".QuestionsSubActivity">
         android:layout_width="match_parent"
         android:layout_height="360dp"
         android:orientation="horizontal"
-        android:weightSum="4">
+        android:layout_gravity="center"
+        android:gravity=""
+        android:weightSum="24">
 
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_weight="17"
             android:layout_gravity=""
             android:gravity="right"
             android:layout_marginRight="5dp"
@@ -94,7 +96,6 @@ tools:context=".QuestionsSubActivity">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_gravity=""
                 android:layout_marginBottom="5dp"
                 android:gravity="right"
                 android:orientation="horizontal">
@@ -103,7 +104,6 @@ tools:context=".QuestionsSubActivity">
                     android:id="@+id/buttonNum1"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/num_keyboard"
@@ -117,7 +117,6 @@ tools:context=".QuestionsSubActivity">
                     android:id="@+id/buttonNum2"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
                     android:background="@drawable/num_keyboard"
@@ -131,7 +130,6 @@ tools:context=".QuestionsSubActivity">
                     android:id="@+id/buttonNum3"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="0dp"
                     android:background="@drawable/num_keyboard"
@@ -146,7 +144,6 @@ tools:context=".QuestionsSubActivity">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
                 android:gravity="right"
                 android:orientation="horizontal">
@@ -155,7 +152,6 @@ tools:context=".QuestionsSubActivity">
                     android:id="@+id/buttonNum4"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_gravity="right"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/num_keyboard"
@@ -169,7 +165,6 @@ tools:context=".QuestionsSubActivity">
                     android:id="@+id/buttonNum5"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
                     android:background="@drawable/num_keyboard"
@@ -183,7 +178,6 @@ tools:context=".QuestionsSubActivity">
                     android:id="@+id/buttonNum6"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="0dp"
                     android:background="@drawable/num_keyboard"
@@ -309,7 +303,7 @@ tools:context=".QuestionsSubActivity">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="7"
             android:orientation="vertical"
             android:layout_gravity="center"
             android:gravity="left"
@@ -347,10 +341,6 @@ tools:context=".QuestionsSubActivity">
 
         </LinearLayout>
 
-
     </LinearLayout>
-
-
-
 
 </LinearLayout>
