@@ -23,14 +23,14 @@
 
 
     <LinearLayout
-        android:id="@+id/backgroundScoreboard1"
+        android:id="@+id/backgroundScoreboard2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
         android:background="@drawable/scoreboard"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"
         >
@@ -43,27 +43,11 @@
             android:layout_marginBottom="5dp"
             android:text="Sikerült teljesíteni!"
             android:textColor="@android:color/white"
-            android:textSize="25dp"
+            android:textSize="35dp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
             />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/backgroundScoreboard2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/scoreboard"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginLeft="80dp"
-        >
 
         <TextView
             android:id="@+id/textQuestionAnswered"
@@ -84,13 +68,16 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="5dp"
-            android:text="Pont: 0"
+            android:text="Pont: allClassLevelPoints / allPoints"
             android:textColor="@android:color/white"
             android:textSize="25dp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
+            android:layout_weight="1"
             />
+
+
 
     </LinearLayout>
 

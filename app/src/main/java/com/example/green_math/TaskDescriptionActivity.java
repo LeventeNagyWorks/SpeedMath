@@ -35,28 +35,36 @@ public class TaskDescriptionActivity extends AppCompatActivity {
         ninthClassSelected = spClassSelect.getBoolean("ninthClassSelected", false);
 
         if (secClassSelected) {
-            textClass.setText("2️⃣. Osztály");
+            textClass.setText("2. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
         if (thirdClassSelected) {
-            textClass.setText("3️⃣. Osztály");
+            textClass.setText("3. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
         if (fourthClassSelected) {
-            textClass.setText("4️⃣. Osztály");
+            textClass.setText("4. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
         if (fifthClassSelected) {
-            textClass.setText("5️⃣. Osztály");
+            textClass.setText("5. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
         if (sixthClassSelected) {
-            textClass.setText("6️⃣. Osztály");
+            textClass.setText("6. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
         if (seventhClassSelected) {
-            textClass.setText("7️⃣. Osztály");
+            textClass.setText("7. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
         if (eighthClassSelected) {
-            textClass.setText("8️⃣. Osztály");
+            textClass.setText("8. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
         if (ninthClassSelected) {
-            textClass.setText("9️⃣. Osztály");
+            textClass.setText("9. Osztály");
+            textClass.setBackgroundResource(R.drawable.class_bg);
         }
 
 
