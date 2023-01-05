@@ -52,8 +52,8 @@ public class FinishActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
 
-        textResult = findViewById(R.id.textResult);
-        questionAnswered = findViewById(R.id.textQuestionAnswered);
+        textResult = findViewById(R.id.textResultAdd);
+        questionAnswered = findViewById(R.id.textQuestionAnsweredAdd);
 
 
         SharedPreferences sp1 = getApplicationContext().getSharedPreferences("AddResults", Context.MODE_PRIVATE);
@@ -89,73 +89,49 @@ public class FinishActivity extends AppCompatActivity {
         ninthClassSelected = spClassSelect.getBoolean("ninthClassSelected", ninthClassSelected);
 
         textClass = findViewById(R.id.textClass);
-        backgroundScoreboard2 = findViewById(R.id.backgroundScoreboard2);
-        textClassLevelResult = findViewById(R.id.textClassLevelResult);
+        backgroundScoreboard2 = findViewById(R.id.backgroundScoreboard2Add);
+//        textClassLevelResult = findViewById(R.id.textClassLevelResultAdd);
         String textRetry = "Próbálkozz újra!";
 
         if (secClassSelected) {
             textClass.setText("2. Osztály");
             allClassLevelPoints = 35;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
         if (thirdClassSelected) {
             textClass.setText("3. Osztály");
             allClassLevelPoints = 62;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
         if (fourthClassSelected) {
             textClass.setText("4. Osztály");
             allClassLevelPoints = 85;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
         if (fifthClassSelected) {
             textClass.setText("5. Osztály");
             allClassLevelPoints = 97;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
         if (sixthClassSelected) {
             textClass.setText("6. Osztály");
             allClassLevelPoints = 108;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
         if (seventhClassSelected) {
             textClass.setText("7. Osztály");
             allClassLevelPoints = 119;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
         if (eighthClassSelected) {
             textClass.setText("8. Osztály");
             allClassLevelPoints = 134;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
         if (ninthClassSelected) {
             textClass.setText("9. Osztály");
             allClassLevelPoints = 160;
-            if (allPoints < allClassLevelPoints) {
-                textClassLevelResult.setText(textRetry);
-                backgroundScoreboard2.setBackgroundResource(R.drawable.wrong_answer_bg);
-            }
+
         }
 
 
@@ -178,16 +154,8 @@ public class FinishActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        Button button_exit = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.button_exit);
-        button_exit.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                finishAndRemoveTask();
-                System.exit(0);
-            }
-        });
     }
+
+    public void onBackPressed() { }
+
 }

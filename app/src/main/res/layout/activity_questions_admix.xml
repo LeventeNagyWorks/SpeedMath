@@ -26,17 +26,17 @@
             android:textColor="@android:color/white"
             android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/rightAnswered"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Pont: 0"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"/>
+<!--        <TextView-->
+<!--            android:id="@+id/rightAnswered"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Pont: 0"-->
+<!--            android:textSize="20sp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textStyle="bold"/>-->
 
     </LinearLayout>
 

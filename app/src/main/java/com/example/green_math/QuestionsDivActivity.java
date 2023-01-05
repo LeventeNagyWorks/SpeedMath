@@ -2,7 +2,9 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -19,12 +21,23 @@ public class QuestionsDivActivity extends AppCompatActivity{
 
     int counter;
 
+    SharedPreferences spDiv;
+    SharedPreferences spFinished;
+
+    boolean addFinished = false;
+    boolean subFinished = false;
+    boolean admixFinished = false;
+    boolean multFinished = false;
+    boolean divFinished = false;
+
+
     Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
 
     TextView textQuestion;
     TextView rightAnswered;
     TextView answerInput;
+
 
     private static String answerStr;
     private static double answerNum;
@@ -34,12 +47,16 @@ public class QuestionsDivActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 20000; //1 min = 60000
+    long mMillisUntilFinished = 10000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions_div);
+
+        spDiv = getSharedPreferences("DivResults", Context.MODE_PRIVATE);
+        spFinished = getSharedPreferences("FinishedTypes", Context.MODE_PRIVATE);
+
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
         new CountDownTimer(mMillisUntilFinished,1000) {
@@ -52,9 +69,26 @@ public class QuestionsDivActivity extends AppCompatActivity{
             public void onFinish() {
                 countTime.setText("Vége");
 
-                Intent intent = new Intent(QuestionsDivActivity.this, DivResultActivity.class);
-                intent.putExtra("DivPont", divPoints);
-                intent.putExtra("DivFeladatDb", divQuestionAnswered);
+                addFinished = true;
+                subFinished = true;
+                admixFinished = true;
+                multFinished = true;
+                divFinished = true;
+
+                SharedPreferences.Editor editor1 = spDiv.edit();
+                editor1.putInt("DivPoints", divPoints);
+                editor1.putInt("DivQuestionAnswered", divQuestionAnswered);
+                editor1.commit();
+
+                SharedPreferences.Editor editor2 = spFinished.edit();
+                editor2.putBoolean("AddFinished", addFinished);
+                editor2.putBoolean("SubFinished", subFinished);
+                editor2.putBoolean("AdmixFinished", admixFinished);
+                editor2.putBoolean("MultFinished", multFinished);
+                editor2.putBoolean("DivFinished", divFinished);
+                editor2.commit();
+
+                Intent intent = new Intent(QuestionsDivActivity.this, FinishActivity.class);
                 startActivity(intent);
                 divPoints = 0;
                 divQuestionAnswered = 0;
@@ -160,9 +194,9 @@ public class QuestionsDivActivity extends AppCompatActivity{
         });
 
 
-        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
-
-        rightAnswered.setText("Pont: " + divPoints);
+//        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
+//
+//        rightAnswered.setText("Pont: " + divPoints);
 
 
 
@@ -230,7 +264,7 @@ public class QuestionsDivActivity extends AppCompatActivity{
         rightAnswerStr = String.valueOf((int) rightAnswer);
         previousSecondNumber = secondNumber;
 
-        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
+        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = 🔳");
 
 
 
@@ -249,12 +283,12 @@ public class QuestionsDivActivity extends AppCompatActivity{
 
 
                 if (rightAnswer == answerNum){
-                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
                     divPoints++;
                     divQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + divPoints);
+//                    rightAnswered.setText("Pont: " + divPoints);
                 }else {
-                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
                     divQuestionAnswered++;
                 }
 
@@ -268,23 +302,25 @@ public class QuestionsDivActivity extends AppCompatActivity{
                         }
 
                     }
-                }, 0750); // 0.75 sec
+                }, 0001); // 0.75 sec
             }
         });
         answerInput.setText("");
     }
 
+    public void onBackPressed() { }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            divPoints = 0;
-            divQuestionAnswered = 0;
-            mMillisUntilFinished = 0;
-            System.exit(0);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+//            divPoints = 0;
+//            divQuestionAnswered = 0;
+//            mMillisUntilFinished = 0;
+//            System.exit(0);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
 
 }

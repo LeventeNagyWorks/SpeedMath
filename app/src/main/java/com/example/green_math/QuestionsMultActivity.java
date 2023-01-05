@@ -2,7 +2,9 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -19,6 +21,15 @@ public class QuestionsMultActivity extends AppCompatActivity{
 
     int counter;
 
+    SharedPreferences spMult;
+    SharedPreferences spFinished;
+
+    boolean addFinished = false;
+    boolean subFinished = false;
+    boolean admixFinished = false;
+    boolean multFinished = false;
+    boolean divFinished = false;
+
     Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
 
@@ -34,12 +45,16 @@ public class QuestionsMultActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 1000; //1 min = 60000
+    long mMillisUntilFinished = 10000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions_mult);
+
+        spMult = getSharedPreferences("MultResults", Context.MODE_PRIVATE);
+        spFinished = getSharedPreferences("FinishedTypes", Context.MODE_PRIVATE);
+
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
         new CountDownTimer(mMillisUntilFinished,1000) {
@@ -52,9 +67,25 @@ public class QuestionsMultActivity extends AppCompatActivity{
             public void onFinish() {
                 countTime.setText("Vége");
 
-                Intent intent = new Intent(QuestionsMultActivity.this, MultResultActivity.class);
-                intent.putExtra("MultPont", multPoints);
-                intent.putExtra("MultFeladatDb", multQuestionAnswered);
+                addFinished = true;
+                subFinished = true;
+                admixFinished = true;
+                multFinished = true;
+
+                SharedPreferences.Editor editor1 = spMult.edit();
+                editor1.putInt("MultPoints", multPoints);
+                editor1.putInt("MultQuestionAnswered", multQuestionAnswered);
+                editor1.commit();
+
+                SharedPreferences.Editor editor2 = spFinished.edit();
+                editor2.putBoolean("AddFinished", addFinished);
+                editor2.putBoolean("SubFinished", subFinished);
+                editor2.putBoolean("AdmixFinished", admixFinished);
+                editor2.putBoolean("MultFinished", multFinished);
+                editor2.putBoolean("DivFinished", divFinished);
+                editor2.commit();
+
+                Intent intent = new Intent(QuestionsMultActivity.this, BreakActivity.class);
                 startActivity(intent);
                 multPoints = 0;
                 multQuestionAnswered = 0;
@@ -160,9 +191,9 @@ public class QuestionsMultActivity extends AppCompatActivity{
         });
 
 
-        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
-
-        rightAnswered.setText("Pont: " + multPoints);
+//        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
+//
+//        rightAnswered.setText("Pont: " + multPoints);
 
 
 
@@ -222,7 +253,7 @@ public class QuestionsMultActivity extends AppCompatActivity{
         }
 
         previousSecondNumber = secondNumber;
-        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
+        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = 🔳");
 
 
 
@@ -241,12 +272,12 @@ public class QuestionsMultActivity extends AppCompatActivity{
 
 
                 if (rightAnswer == answerNum){
-                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
                     multPoints++;
                     multQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + multPoints);
+//                    rightAnswered.setText("Pont: " + multPoints);
                 }else {
-                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
                     multQuestionAnswered++;
                 }
 
@@ -260,23 +291,25 @@ public class QuestionsMultActivity extends AppCompatActivity{
                         }
 
                     }
-                }, 0750); // 0.75 sec
+                }, 0001); // 0.75 sec
             }
         });
         answerInput.setText("");
     }
 
+    public void onBackPressed() { }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            multPoints = 0;
-            multQuestionAnswered = 0;
-            mMillisUntilFinished = 0;
-            System.exit(0);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+//            multPoints = 0;
+//            multQuestionAnswered = 0;
+//            mMillisUntilFinished = 0;
+//            System.exit(0);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
 
 }

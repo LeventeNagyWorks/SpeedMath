@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#2e2e2e"
-    tools:context=".DivResultActivity">
+    tools:context=".BreakActivity">
 
     <TextView
         android:layout_width="350dp"
         android:layout_height="90dp"
-        android:text="Bennfoglalás"
+        android:text="Szünet"
         android:textColor="@android:color/white"
         android:textSize="55dp"
         android:textStyle="bold"
@@ -29,20 +29,20 @@
         android:gravity="center"
         android:background="@drawable/scoreboard"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"
         >
 
         <TextView
-            android:id="@+id/textClassLevelResult"
+            android:id="@+id/textBreakCountdown"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:text="Sikerült teljesíteni!"
+            android:text="01:00"
             android:textColor="@android:color/white"
-            android:textSize="25dp"
+            android:textSize="45dp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
@@ -51,50 +51,21 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/backgroundScoreboard2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/scoreboard"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginLeft="80dp"
-        >
-
-        <TextView
-            android:id="@+id/textQuestionAnswered"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Megoldva: 0"
-            android:textColor="@android:color/white"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_gravity="center"
-            />
-
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginBottom="5dp"
-            android:text="Pont: 0"
-            android:textColor="@android:color/white"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_gravity="center"
-            />
-
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/backgroundScoreboard2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:gravity="center"-->
+<!--        android:background="@drawable/scoreboard"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginBottom="50dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        />-->
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonToFinish"
+        android:id="@+id/buttonToNextTaskType"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_marginTop="0dp"

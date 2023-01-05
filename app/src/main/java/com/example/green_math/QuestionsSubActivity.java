@@ -2,7 +2,9 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -16,8 +18,16 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class QuestionsSubActivity extends AppCompatActivity{
-    public int counter;
 
+    public int counter;
+    SharedPreferences spSub;
+    SharedPreferences spFinished;
+
+    boolean addFinished = false;
+    boolean subFinished = false;
+    boolean admixFinished = false;
+    boolean multFinished = false;
+    boolean divFinished = false;
 
     Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -40,12 +50,15 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
 
 
-    long mMillisUntilFinished = 1000; //1 min = 60000
+    long mMillisUntilFinished = 10000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions_sub);
+
+        spSub = getSharedPreferences("SubResults", Context.MODE_PRIVATE);
+        spFinished = getSharedPreferences("FinishedTypes", Context.MODE_PRIVATE);
 
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
@@ -58,12 +71,25 @@ public class QuestionsSubActivity extends AppCompatActivity{
             @Override
             public void onFinish() {
                 countTime.setText("Vége");
-                
-                Intent intent = new Intent(QuestionsSubActivity.this, SubResultActivity.class);
-                intent.putExtra("SubPont", subPoints);
-                intent.putExtra("SubFeladatDb", subQuestionAnswered);
-                startActivity(intent);
 
+                addFinished = true;
+                subFinished = true;
+
+                SharedPreferences.Editor editor1 = spSub.edit();
+                editor1.putInt("SubPoints", subPoints);
+                editor1.putInt("SubQuestionAnswered", subQuestionAnswered);
+                editor1.commit();
+
+                SharedPreferences.Editor editor2 = spFinished.edit();
+                editor2.putBoolean("AddFinished", addFinished);
+                editor2.putBoolean("SubFinished", subFinished);
+                editor2.putBoolean("AdmixFinished", admixFinished);
+                editor2.putBoolean("MultFinished", multFinished);
+                editor2.putBoolean("DivFinished", divFinished);
+                editor2.commit();
+
+                Intent intent = new Intent(QuestionsSubActivity.this, BreakActivity.class);
+                startActivity(intent);
                 subPoints = 0;
                 subQuestionAnswered = 0;
                 finish();
@@ -168,9 +194,9 @@ public class QuestionsSubActivity extends AppCompatActivity{
         });
 
         
-        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
-
-        rightAnswered.setText("Pont: " + subPoints);
+//        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
+//
+//        rightAnswered.setText("Pont: " + subPoints);
 
 
 
@@ -232,7 +258,7 @@ public class QuestionsSubActivity extends AppCompatActivity{
         }
         previousSecondNumber = secondNumber;
 
-        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
+        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = 🔳");
 
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -250,12 +276,12 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
 
                 if (rightAnswer==answerNum){
-                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
                     subPoints++;
                     subQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + subPoints);
+//                    rightAnswered.setText("Pont: " + subPoints);
                 }else {
-                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
                     subQuestionAnswered++;
                 }
 
@@ -269,7 +295,7 @@ public class QuestionsSubActivity extends AppCompatActivity{
                         }
 
                     }
-                }, 0750); // 0.75 sec
+                }, 0001); // 0.75 sec
             }
         });
         answerInput.setText("");

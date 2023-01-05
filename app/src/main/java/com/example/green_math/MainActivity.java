@@ -34,23 +34,23 @@ public class MainActivity extends AppCompatActivity {
 
         spClassSelect = getSharedPreferences("ClassSelect", Context.MODE_PRIVATE);
 
-        Button button_exit = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.button_exit);
-        button_exit.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                secClassSelected = false;
-                thirdClassSelected = false;
-                fourthClassSelected = false;
-                fifthClassSelected = false;
-                sixthClassSelected = false;
-                seventhClassSelected = false;
-                eighthClassSelected = false;
-                ninthClassSelected = false;
-                finishAndRemoveTask();
-                System.exit(0);
-            }
-        });
+//        Button button_exit = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.button_exit);
+//        button_exit.setOnClickListener(new OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                secClassSelected = false;
+//                thirdClassSelected = false;
+//                fourthClassSelected = false;
+//                fifthClassSelected = false;
+//                sixthClassSelected = false;
+//                seventhClassSelected = false;
+//                eighthClassSelected = false;
+//                ninthClassSelected = false;
+//                finishAndRemoveTask();
+//                System.exit(0);
+//            }
+//        });
 
         Button button_sec = (Button) findViewById(R.id.button_sec);
         button_sec.setOnClickListener(new OnClickListener() {
@@ -264,21 +264,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+    public void onBackPressed() { }
 
-            secClassSelected = false;
-            thirdClassSelected = false;
-            fourthClassSelected = false;
-            fifthClassSelected = false;
-            sixthClassSelected = false;
-            seventhClassSelected = false;
-            eighthClassSelected = false;
-            ninthClassSelected = false;
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+//
+//            secClassSelected = false;
+//            thirdClassSelected = false;
+//            fourthClassSelected = false;
+//            fifthClassSelected = false;
+//            sixthClassSelected = false;
+//            seventhClassSelected = false;
+//            eighthClassSelected = false;
+//            ninthClassSelected = false;
+//
+//            System.exit(0);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
-            System.exit(0);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 }

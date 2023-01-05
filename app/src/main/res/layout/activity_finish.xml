@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,25 +27,25 @@
 
 
     <LinearLayout
-        android:id="@+id/backgroundScoreboard2"
+        android:id="@+id/backgroundScoreboard2Add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
         android:background="@drawable/scoreboard"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="25dp"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"
         >
 
         <TextView
-            android:id="@+id/textClassLevelResult"
+            android:id="@+id/textTaskTypeAdd"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Sikerült teljesíteni!"
+            android:layout_height="65dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="Összeadás"
             android:textColor="@android:color/white"
             android:textSize="35dp"
             android:textStyle="bold"
@@ -50,27 +54,41 @@
             />
 
         <TextView
-            android:id="@+id/textQuestionAnswered"
+            android:id="@+id/textQuestionAnsweredAdd"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:text="Megoldva: 0"
             android:textColor="@android:color/white"
-            android:textSize="25dp"
+            android:textSize="23dp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
             />
 
         <TextView
-            android:id="@+id/textResult"
+            android:id="@+id/textResultAdd"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="5dp"
-            android:text="Pont: allClassLevelPoints / allPoints"
+            android:text="Elért pontszám: 0"
             android:textColor="@android:color/white"
-            android:textSize="25dp"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/textClassLevelAdd"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:text="1. Osztályos szint!"
+            android:textColor="@android:color/white"
+            android:textSize="23dp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
@@ -82,11 +100,296 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/backgroundScoreboard2Sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/scoreboard"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="80dp"
+        >
+
+        <TextView
+            android:id="@+id/textTaskTypeSub"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="Kivonás"
+            android:textColor="@android:color/white"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/textQuestionAnsweredSub"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Megoldva: 0"
+            android:textColor="@android:color/white"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/textResultSub"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:text="Elért pontszám: 0"
+            android:textColor="@android:color/white"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/textClassLevelSub"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:text="1. Osztályos szint!"
+            android:textColor="@android:color/white"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/backgroundScoreboard2Admix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/scoreboard"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="80dp"
+            >
+
+            <TextView
+                android:id="@+id/textTaskTypeAdmix"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:text="Pótlás"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/textQuestionAnsweredAdmix"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Megoldva: 0"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/textResultAdmix"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="5dp"
+                android:text="Elért pontszám: 0"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/textClassLevelAdmix"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="5dp"
+                android:text="1. Osztályos szint!"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/backgroundScoreboard2Mult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/scoreboard"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="80dp"
+            >
+
+            <TextView
+                android:id="@+id/textTaskTypeMult"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:text="Szorzás"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/textQuestionAnsweredMult"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Megoldva: 0"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/textResultMult"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="5dp"
+                android:text="Elért pontszám: 0"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/textClassLevelMult"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="5dp"
+                android:text="1. Osztályos szint!"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/backgroundScoreboard2Div"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/scoreboard"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="80dp"
+            >
+
+            <TextView
+                android:id="@+id/textTaskTypeDiv"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:text="Bennfoglalás"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/textQuestionAnsweredDiv"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Megoldva: 0"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/textResultDiv"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="5dp"
+                android:text="Elért pontszám: 0"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/textClassLevelDiv"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="5dp"
+                android:text="1. Osztályos szint!"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonBackMain"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/num_keyboard"
         android:text="Vissza"
         android:textColor="@color/white"
@@ -96,18 +399,5 @@
         android:gravity="center"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_exit"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_back"
-        android:gravity="center"
-        android:text="Kilépés"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -78,23 +78,37 @@ public class TaskDescriptionActivity extends AppCompatActivity {
             }
         });
 
+        Button buttonBackMain = (Button) findViewById(R.id.buttonBackMain);
+        buttonBackMain.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //TODO: reset class
+                Intent intent = new Intent(TaskDescriptionActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+    public void onBackPressed() { }
 
-            secClassSelected = false;
-            thirdClassSelected = false;
-            fourthClassSelected = false;
-            fifthClassSelected = false;
-            sixthClassSelected = false;
-            seventhClassSelected = false;
-            eighthClassSelected = false;
-            ninthClassSelected = false;
-
-            System.exit(0);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+//
+//            secClassSelected = false;
+//            thirdClassSelected = false;
+//            fourthClassSelected = false;
+//            fifthClassSelected = false;
+//            sixthClassSelected = false;
+//            seventhClassSelected = false;
+//            eighthClassSelected = false;
+//            ninthClassSelected = false;
+//
+//            System.exit(0);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 }

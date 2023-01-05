@@ -2,7 +2,9 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -18,6 +20,14 @@ import java.util.Random;
 public class QuestionsAdmixActivity extends AppCompatActivity{
     public int counter;
 
+    SharedPreferences spAdmix;
+    SharedPreferences spFinished;
+
+    boolean addFinished = false;
+    boolean subFinished = false;
+    boolean admixFinished = false;
+    boolean multFinished = false;
+    boolean divFinished = false;
 
     Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -42,6 +52,9 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
         setContentView(R.layout.activity_questions_add);
 
 
+        spAdmix = getSharedPreferences("AdmixResults", Context.MODE_PRIVATE);
+        spFinished = getSharedPreferences("FinishedTypes", Context.MODE_PRIVATE);
+
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
         new CountDownTimer(mMillisUntilFinished,1000) {
@@ -54,9 +67,24 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
             public void onFinish() {
                 countTime.setText("Vége");
 
-                Intent intent = new Intent(QuestionsAdmixActivity.this, AdmixResultActivity.class);
-                intent.putExtra("AdmixPont", admixPoints);
-                intent.putExtra("AdmixFeladatDb", admixQuestionAnswered);
+                addFinished = true;
+                subFinished = true;
+                admixFinished = true;
+
+                SharedPreferences.Editor editor1 = spAdmix.edit();
+                editor1.putInt("AdmixPoints", admixPoints);
+                editor1.putInt("AdmixQuestionAnswered", admixQuestionAnswered);
+                editor1.commit();
+
+                SharedPreferences.Editor editor2 = spFinished.edit();
+                editor2.putBoolean("AddFinished", addFinished);
+                editor2.putBoolean("SubFinished", subFinished);
+                editor2.putBoolean("AdmixFinished", admixFinished);
+                editor2.putBoolean("MultFinished", multFinished);
+                editor2.putBoolean("DivFinished", divFinished);
+                editor2.commit();
+
+                Intent intent = new Intent(QuestionsAdmixActivity.this, BreakActivity.class);
                 startActivity(intent);
                 admixPoints = 0;
                 admixQuestionAnswered = 0;
@@ -165,9 +193,9 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
 
 
 
-        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
-
-        rightAnswered.setText("Pont: " + admixPoints);
+//        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
+//
+//        rightAnswered.setText("Pont: " + admixPoints);
 
 
 
@@ -248,12 +276,12 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
 
 
                 if (rightAnswer==answerNum){
-                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
                     admixPoints++;
                     admixQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + admixPoints);
+//                    rightAnswered.setText("Pont: " + admixPoints);
                 }else {
-                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
                     admixQuestionAnswered++;
                 }
 
@@ -267,23 +295,24 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
                         }
 
                     }
-                }, 0500); // 0.5 sec
+                }, 0001); // 0.500 = 0.5 sec
             }
         });
         answerInput.setText("");
     }
 
+    public void onBackPressed() { }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            admixPoints = 0;
-            admixQuestionAnswered = 0;
-            mMillisUntilFinished = 0;
-            System.exit(0);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+//            admixPoints = 0;
+//            admixQuestionAnswered = 0;
+//            mMillisUntilFinished = 0;
+//            System.exit(0);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
 
 }

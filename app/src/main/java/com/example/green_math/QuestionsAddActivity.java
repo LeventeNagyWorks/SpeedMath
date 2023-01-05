@@ -2,7 +2,9 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -18,6 +20,8 @@ import java.util.Random;
 public class QuestionsAddActivity extends AppCompatActivity{
     public int counter;
 
+    SharedPreferences spAdd;
+    SharedPreferences spFinished;
 
     Button buttonDelete, buttonSubmit;
     Button  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -34,13 +38,22 @@ public class QuestionsAddActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 1000; //1 min = 60000
+    boolean addFinished = false;
+    boolean subFinished = false;
+    boolean admixFinished = false;
+    boolean multFinished = false;
+    boolean divFinished = false;
+
+
+    long mMillisUntilFinished = 10000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions_add);
 
+        spAdd = getSharedPreferences("AddResults", Context.MODE_PRIVATE);
+        spFinished = getSharedPreferences("FinishedTypes", Context.MODE_PRIVATE);
 
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
@@ -54,9 +67,22 @@ public class QuestionsAddActivity extends AppCompatActivity{
             public void onFinish() {
                 countTime.setText("Vége");
 
-                Intent intent = new Intent(QuestionsAddActivity.this, AddResultActivity.class);
-                intent.putExtra("AddPont", addPoints);
-                intent.putExtra("AddFeladatDb", addQuestionAnswered);
+                addFinished = true;
+
+                SharedPreferences.Editor editor1 = spAdd.edit();
+                editor1.putInt("AddPoints", addPoints);
+                editor1.putInt("AddQuestionAnswered", addQuestionAnswered);
+                editor1.commit();
+
+                SharedPreferences.Editor editor2 = spFinished.edit();
+                editor2.putBoolean("AddFinished", addFinished);
+                editor2.putBoolean("SubFinished", subFinished);
+                editor2.putBoolean("AdmixFinished", admixFinished);
+                editor2.putBoolean("MultFinished", multFinished);
+                editor2.putBoolean("DivFinished", divFinished);
+                editor2.commit();
+
+                Intent intent = new Intent(QuestionsAddActivity.this, BreakActivity.class);
                 startActivity(intent);
                 addPoints = 0;
                 addQuestionAnswered = 0;
@@ -162,9 +188,8 @@ public class QuestionsAddActivity extends AppCompatActivity{
         });
 
 
-        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
-
-        rightAnswered.setText("Pont: " + addPoints);
+//        rightAnswered = (TextView) findViewById(R.id.rightAnswered);
+//        rightAnswered.setText("Pont: " + addPoints);
 
 
 
@@ -226,7 +251,7 @@ public class QuestionsAddActivity extends AppCompatActivity{
         }
 
         previousSecondNumber = secondNumber;
-        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
+        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = 🔳");
 
 
 
@@ -245,12 +270,12 @@ public class QuestionsAddActivity extends AppCompatActivity{
 
 
                 if (rightAnswer==answerNum){
-                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.right_answer_bg);
                     addPoints++;
                     addQuestionAnswered++;
-                    rightAnswered.setText("Pont: " + addPoints);
+//                    rightAnswered.setText("Pont: " + addPoints);
                 }else {
-                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
+//                    answerInput.setBackgroundResource(R.drawable.wrong_answer_bg);
                     addQuestionAnswered++;
                 }
 
@@ -264,23 +289,25 @@ public class QuestionsAddActivity extends AppCompatActivity{
                         }
 
                     }
-                }, 0750); // 0.75 sec
+                }, 0001); // 0750 = 0.75 sec
             }
         });
         answerInput.setText("");
     }
 
+    public void onBackPressed() { }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            addPoints = 0;
-            addQuestionAnswered = 0;
-            mMillisUntilFinished = 0;
-            System.exit(0);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+//            addPoints = 0;
+//            addQuestionAnswered = 0;
+//            mMillisUntilFinished = 0;
+//            System.exit(0);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
 
 }
