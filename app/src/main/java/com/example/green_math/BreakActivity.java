@@ -22,17 +22,6 @@ public class BreakActivity extends AppCompatActivity {
     Button buttonToNextTaskType;
     LinearLayout backgroundScoreboard2;
 
-    int addPoints = 0;
-    int addQuestionAnswered = 0;
-    int subPoints = 0;
-    int subQuestionAnswered = 0;
-    int admixPoints = 0;
-    int admixQuestionAnswered = 0;
-    int multPoints = 0;
-    int multQuestionAnswered = 0;
-    int divPoints = 0;
-    int divQuestionAnswered = 0;
-
     boolean addFinished = false;
     boolean subFinished = false;
     boolean admixFinished = false;
@@ -41,7 +30,7 @@ public class BreakActivity extends AppCompatActivity {
 
     CountDownTimer mCountDownTimer;
     int counter;
-    long mMillisUntilFinished = 5000;
+    long mMillisUntilFinished = 60000;
 
     boolean secClassSelected = false;
     boolean thirdClassSelected = false;
