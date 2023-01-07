@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2e2e2e"
+    android:background="#0a1128"
     tools:context=".TaskDescriptionActivity">
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_gravity="center_vertical|end"
         android:layout_marginTop="36dp"
         android:gravity="center_horizontal|center_vertical"
-        android:text="Feladat típusunként 1 perced van válaszolni a kérdésekre. Próbálj meg egy perc alatt minél több kérdésre válaszolni. A típusok között tarthatsz 1 perc szünetet."
+        android:text="Feladat típusonként 1 perced van válaszolni a kérdésekre. Próbálj meg egy perc alatt minél több kérdésre válaszolni. A típusok között tarthatsz 1 perc szünetet."
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

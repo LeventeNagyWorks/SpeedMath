@@ -50,7 +50,7 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
 
 
-    long mMillisUntilFinished = 10000; //1 min = 60000
+    long mMillisUntilFinished = 5000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -301,17 +301,18 @@ public class QuestionsSubActivity extends AppCompatActivity{
         answerInput.setText("");
     }
 
+    public void onBackPressed() { }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            subPoints = 0;
-            subQuestionAnswered = 0;
-            mMillisUntilFinished = 0;
-            System.exit(0);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+//            subPoints = 0;
+//            subQuestionAnswered = 0;
+//            mMillisUntilFinished = 0;
+//            System.exit(0);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
 
 }

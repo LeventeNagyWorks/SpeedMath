@@ -47,7 +47,7 @@ public class QuestionsDivActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
-    long mMillisUntilFinished = 10000; //1 min = 60000
+    long mMillisUntilFinished = 5000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

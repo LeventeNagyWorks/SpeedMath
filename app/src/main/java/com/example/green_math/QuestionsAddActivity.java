@@ -45,7 +45,7 @@ public class QuestionsAddActivity extends AppCompatActivity{
     boolean divFinished = false;
 
 
-    long mMillisUntilFinished = 10000; //1 min = 60000
+    long mMillisUntilFinished = 5000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
