@@ -18,7 +18,6 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class QuestionsAdmixActivity extends AppCompatActivity{
-    public int counter;
 
     SharedPreferences spAdmix;
     SharedPreferences spFinished;
@@ -44,6 +43,8 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
     String realOperation = "";
     double rightAnswer = 0;
 
+    CountDownTimer mCountDownTimer;
+    int counter;
     long mMillisUntilFinished = 5000; //1 min = 60000
 
     @Override
@@ -57,7 +58,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
 
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
-        new CountDownTimer(mMillisUntilFinished,1000) {
+        mCountDownTimer = new CountDownTimer(mMillisUntilFinished,1000) {
             @Override
             public void onTick(long mMillisUntilFinished) {
                 countTime.setText("00:"+ mMillisUntilFinished / 1000);
@@ -301,18 +302,14 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
         answerInput.setText("");
     }
 
-    public void onBackPressed() { }
-
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
-//            admixPoints = 0;
-//            admixQuestionAnswered = 0;
-//            mMillisUntilFinished = 0;
-//            System.exit(0);
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
+    public void onBackPressed() {
+        mCountDownTimer.cancel();
+        admixPoints = 0;
+        admixQuestionAnswered = 0;
+        Intent intent = new Intent(QuestionsAdmixActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 }

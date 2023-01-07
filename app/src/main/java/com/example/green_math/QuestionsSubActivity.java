@@ -19,7 +19,6 @@ import java.util.Random;
 
 public class QuestionsSubActivity extends AppCompatActivity{
 
-    public int counter;
     SharedPreferences spSub;
     SharedPreferences spFinished;
 
@@ -41,15 +40,14 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
     public static int subPoints = 0;
     public static int subQuestionAnswered = 0;
-    int addPoints = 0;
-    int addQuestionAnswered = 0;
 
 
     String realOperation = "";
     double rightAnswer = 0;
 
 
-
+    CountDownTimer mCountDownTimer;
+    int counter;
     long mMillisUntilFinished = 5000; //1 min = 60000
 
     @Override
@@ -62,7 +60,7 @@ public class QuestionsSubActivity extends AppCompatActivity{
 
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
-        new CountDownTimer(mMillisUntilFinished,1000) {
+        mCountDownTimer = new CountDownTimer(mMillisUntilFinished,1000) {
             @Override
             public void onTick(long mMillisUntilFinished) {
                 countTime.setText("00:"+ mMillisUntilFinished / 1000);
@@ -301,18 +299,14 @@ public class QuestionsSubActivity extends AppCompatActivity{
         answerInput.setText("");
     }
 
-    public void onBackPressed() { }
-
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK ) {
-//            subPoints = 0;
-//            subQuestionAnswered = 0;
-//            mMillisUntilFinished = 0;
-//            System.exit(0);
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
+    public void onBackPressed() {
+        mCountDownTimer.cancel();
+        subPoints = 0;
+        subQuestionAnswered = 0;
+        Intent intent = new Intent(QuestionsSubActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 }

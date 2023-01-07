@@ -92,7 +92,11 @@ public class TaskDescriptionActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() { }
+    public void onBackPressed() {
+        Intent intent = new Intent(TaskDescriptionActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 //    @Override
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {

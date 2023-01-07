@@ -18,7 +18,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class QuestionsAddActivity extends AppCompatActivity{
-    public int counter;
+
 
     SharedPreferences spAdd;
     SharedPreferences spFinished;
@@ -44,8 +44,9 @@ public class QuestionsAddActivity extends AppCompatActivity{
     boolean multFinished = false;
     boolean divFinished = false;
 
-
-    long mMillisUntilFinished = 5000; //1 min = 60000
+    CountDownTimer mCountDownTimer;
+    int counter;
+    long mMillisUntilFinished = 30000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class QuestionsAddActivity extends AppCompatActivity{
 
 
         final TextView countTime = findViewById(R.id.text_view_countdown);
-        new CountDownTimer(mMillisUntilFinished,1000) {
+        mCountDownTimer = new CountDownTimer(mMillisUntilFinished,1000) {
             @Override
             public void onTick(long mMillisUntilFinished) {
                 countTime.setText("00:"+ mMillisUntilFinished / 1000);
@@ -295,7 +296,14 @@ public class QuestionsAddActivity extends AppCompatActivity{
         answerInput.setText("");
     }
 
-    public void onBackPressed() { }
+    public void onBackPressed() {
+        mCountDownTimer.cancel();
+        addPoints = 0;
+        addQuestionAnswered = 0;
+        Intent intent = new Intent(QuestionsAddActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 //    @Override

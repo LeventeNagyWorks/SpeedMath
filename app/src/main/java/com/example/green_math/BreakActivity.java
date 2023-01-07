@@ -164,7 +164,12 @@ public class BreakActivity extends AppCompatActivity {
 
     }
 
-    public void onBackPressed() { }
+    public void onBackPressed() {
+        mCountDownTimer.cancel();
+        Intent intent = new Intent(BreakActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 //    @Override
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {
