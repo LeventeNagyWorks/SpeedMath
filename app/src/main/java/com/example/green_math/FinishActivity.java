@@ -38,13 +38,14 @@ public class FinishActivity extends AppCompatActivity {
 
 
 
-    String textSecClassAnnounce = "2. Osztályos szinten vagy!";
-    String textThirdClassAnnounce = "3. Osztályos szinten vagy!";
-    String textFourthClassAnnounce = "4. Osztályos szinten vagy!";
-    String textFifthClassAnnounce = "5. Osztályos szinten vagy!";String textSixthClassAnnounce = "6. Osztályos szinten vagy!";
-    String textSeventhClassAnnounce = "7. Osztályos szinten vagy!";
-    String textEighthClassAnnounce = "8. Osztályos szinten vagy!";
-    String textNinthClassAnnounce = "9. Osztályos szinten vagy!";
+    String textSecClassAnnounce = "2. osztályos szinten vagy!";
+    String textThirdClassAnnounce = "3. osztályos szinten vagy!";
+    String textFourthClassAnnounce = "4. osztályos szinten vagy!";
+    String textFifthClassAnnounce = "5. osztályos szinten vagy!";
+    String textSixthClassAnnounce = "6. osztályos szinten vagy!";
+    String textSeventhClassAnnounce = "7. osztályos szinten vagy!";
+    String textEighthClassAnnounce = "8. osztályos szinten vagy!";
+    String textNinthClassAnnounce = "9. osztályos szinten vagy!";
 
     int allPoints = 0;
     int allQuestionAnswered = 0;

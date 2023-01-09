@@ -47,7 +47,7 @@ public class QuestionsDivActivity extends AppCompatActivity{
 
     CountDownTimer mCountDownTimer;
     int counter;
-    long mMillisUntilFinished = 60000; //1 min = 60000
+    long mMillisUntilFinished = 7000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,7 +247,7 @@ public class QuestionsDivActivity extends AppCompatActivity{
         int secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
         int previousSecondNumber = secondNumber;
 
-        realOperation = "/";
+        realOperation = ":";
         rightAnswer = firstNumber / secondNumber;
 
         String rightAnswerStr = String.valueOf((int) rightAnswer);
@@ -264,7 +264,7 @@ public class QuestionsDivActivity extends AppCompatActivity{
         rightAnswerStr = String.valueOf((int) rightAnswer);
         previousSecondNumber = secondNumber;
 
-        textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = 🔳");
+        textQuestion.setText(firstNumber + "  " + realOperation + "  " + secondNumber + "  =  🔳");
 
 
 

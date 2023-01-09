@@ -45,7 +45,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
 
     CountDownTimer mCountDownTimer;
     int counter;
-    long mMillisUntilFinished = 60000; //1 min = 60000
+    long mMillisUntilFinished = 7000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -258,7 +258,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
         }
         previousSecondNumber = secondNumber;
 
-        textQuestion.setText(secondNumber + " " + realOperation +  " 🔳 = " + firstNumber);
+        textQuestion.setText(secondNumber + "  " + realOperation +  "  🔳  =  " + firstNumber);
 
 
 

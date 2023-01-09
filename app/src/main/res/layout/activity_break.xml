@@ -20,6 +20,48 @@
         android:layout_marginTop="120dp"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="110px"
+            android:layout_height="110px"
+
+            >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="110px"
+            android:layout_height="110px"
+            >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="110px"
+            android:layout_height="110px"
+            >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="110px"
+            android:layout_height="110px"
+            >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="110px"
+            android:layout_height="110px"
+            >
+        </ImageView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/backgroundScoreboard1"
@@ -27,8 +69,7 @@
         android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/scoreboard"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"
@@ -38,15 +79,15 @@
             android:id="@+id/textBreakCountdown"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:background="@drawable/scoreboard"
+            android:gravity="center"
             android:text="01:00"
             android:textColor="@android:color/white"
             android:textSize="45dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_gravity="center"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
