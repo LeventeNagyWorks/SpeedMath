@@ -25,41 +25,178 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="75dp"
         android:layout_marginBottom="0dp"
         android:orientation="horizontal"
         >
 
-        <ImageView
-            android:layout_width="110px"
-            android:layout_height="110px"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            >
-        </ImageView>
+            <ImageView
+                android:id="@+id/add_tick"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/add_icon_bg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:src="@drawable/avd_done"
+                >
+            </ImageView>
 
-        <ImageView
-            android:layout_width="110px"
-            android:layout_height="110px"
-            >
-        </ImageView>
+            <TextView
+                android:id="@+id/add_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/add_icon_bg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:text="+"
+                >
+            </TextView>
 
-        <ImageView
-            android:layout_width="110px"
-            android:layout_height="110px"
-            >
-        </ImageView>
+        </RelativeLayout>
 
-        <ImageView
-            android:layout_width="110px"
-            android:layout_height="110px"
-            >
-        </ImageView>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="110px"
-            android:layout_height="110px"
-            >
-        </ImageView>
+            <ImageView
+                android:id="@+id/sub_tick"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/sub_icon_bg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:src="@drawable/avd_done"
+                >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/sub_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/sub_icon_bg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:text="-"
+                >
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/admix_tick"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/admix_icon_bg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:src="@drawable/avd_done"
+                >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/admix_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/admix_icon_bg"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:text="_"
+                >
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/mult_tick"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/mult_icon_bg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:src="@drawable/avd_done"
+                >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/mult_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/mult_icon_bg"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:text="*"
+                >
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/div_tick"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/div_icon_bg"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:src="@drawable/avd_done"
+                >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/div_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/div_icon_bg"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:text=":"
+                >
+            </TextView>
+
+        </RelativeLayout>
+
+
 
     </LinearLayout>
 

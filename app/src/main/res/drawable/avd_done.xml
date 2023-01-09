@@ -9,18 +9,17 @@
             android:viewportWidth="110"
             android:viewportHeight="110">
             <path
-                android:name="done"
-                android:pathData="M 5.052 53.294 L 35.914 85.862 L 104.948 24.138"
-                android:fillColor="#000000"
-                android:fillAlpha="0"
+                android:name="path"
+                android:pathData="M 15.703 53.658 L 39.984 79.281 L 94.297 30.719"
                 android:strokeColor="#00af00"
-                android:strokeWidth="10"
+                android:strokeWidth="15"
                 android:trimPathEnd="0"
                 android:strokeLineCap="round"
-                android:strokeLineJoin="round"/>
+                android:strokeLineJoin="round"
+                android:strokeMiterLimit="10"/>
         </vector>
     </aapt:attr>
-    <target android:name="done">
+    <target android:name="path">
         <aapt:attr name="android:animation">
             <objectAnimator
                 android:propertyName="trimPathEnd"

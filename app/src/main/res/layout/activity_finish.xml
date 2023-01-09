@@ -25,6 +25,88 @@
         android:layout_marginTop="50dp"
         />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal"
+            >
+
+                <ImageView
+                    android:id="@+id/add_tick"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/add_icon_bg"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:src="@drawable/avd_done"
+                    >
+                </ImageView>
+
+
+                <ImageView
+                    android:id="@+id/sub_tick"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/sub_icon_bg"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:src="@drawable/avd_done"
+                    >
+                </ImageView>
+
+
+                <ImageView
+                    android:id="@+id/admix_tick"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@drawable/admix_icon_bg"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:src="@drawable/avd_done"
+                    >
+                </ImageView>
+
+
+                <ImageView
+                    android:id="@+id/mult_tick"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/mult_icon_bg"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:src="@drawable/avd_done"
+                    >
+                </ImageView>
+
+
+                <ImageView
+                    android:id="@+id/div_tick"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/div_icon_bg"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:src="@drawable/avd_done"
+                    >
+                </ImageView>
+
+
+        </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/backgroundScoreboard2Add"
@@ -34,7 +116,7 @@
         android:gravity="center"
         android:textColor="@android:color/black"
         android:background="@drawable/scoreboard"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="25dp"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"

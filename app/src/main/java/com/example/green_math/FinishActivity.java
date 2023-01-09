@@ -5,13 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class FinishActivity extends AppCompatActivity {
+
+    ImageView add_tick;
+    ImageView sub_tick;
+    ImageView admix_tick;
+    ImageView mult_tick;
+    ImageView div_tick;
 
     TextView textClass;
     LinearLayout backgroundScoreboard2;
@@ -79,6 +87,24 @@ public class FinishActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
+
+        add_tick = findViewById(R.id.add_tick);
+        sub_tick = findViewById(R.id.sub_tick);
+        admix_tick = findViewById(R.id.admix_tick);
+        mult_tick = findViewById(R.id.mult_tick);
+        div_tick = findViewById(R.id.div_tick);
+
+        AnimatedVectorDrawable addTick = (AnimatedVectorDrawable) add_tick.getDrawable();
+        AnimatedVectorDrawable subTick = (AnimatedVectorDrawable) sub_tick.getDrawable();
+        AnimatedVectorDrawable admixTick = (AnimatedVectorDrawable) admix_tick.getDrawable();
+        AnimatedVectorDrawable multTick = (AnimatedVectorDrawable) mult_tick.getDrawable();
+        AnimatedVectorDrawable divTick = (AnimatedVectorDrawable) div_tick.getDrawable();
+        addTick.start();
+        subTick.start();
+        admixTick.start();
+        multTick.start();
+        divTick.start();
+
 
 
         textResultAdd = findViewById(R.id.textResultAdd);
