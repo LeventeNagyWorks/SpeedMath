@@ -22,6 +22,8 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
     SharedPreferences spAdmix;
     SharedPreferences spFinished;
 
+    int previousSecondNumber = 0;
+
     boolean addFinished = false;
     boolean subFinished = false;
     boolean admixFinished = false;
@@ -45,7 +47,7 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
 
     CountDownTimer mCountDownTimer;
     int counter;
-    long mMillisUntilFinished = 60000; //1 min = 60000
+    long mMillisUntilFinished = 7000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -246,7 +248,6 @@ public class QuestionsAdmixActivity extends AppCompatActivity{
 
         int firstNumber = new Random().nextInt(maxRandFirstNum - minRandFirstNum + 1) + minRandFirstNum;
         int secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
-        int previousSecondNumber = secondNumber;
 
         realOperation = "+";
         rightAnswer = firstNumber - secondNumber;

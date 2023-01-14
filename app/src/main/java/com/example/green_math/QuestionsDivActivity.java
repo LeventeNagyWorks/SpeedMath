@@ -22,6 +22,8 @@ public class QuestionsDivActivity extends AppCompatActivity{
     SharedPreferences spDiv;
     SharedPreferences spFinished;
 
+    int previousSecondNumber = 0;
+
     boolean addFinished = false;
     boolean subFinished = false;
     boolean admixFinished = false;
@@ -47,7 +49,7 @@ public class QuestionsDivActivity extends AppCompatActivity{
 
     CountDownTimer mCountDownTimer;
     int counter;
-    long mMillisUntilFinished = 60000; //1 min = 60000
+    long mMillisUntilFinished = 7000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -245,7 +247,6 @@ public class QuestionsDivActivity extends AppCompatActivity{
 
         int firstNumber = new Random().nextInt(maxRandFirstNum - minRandFirstNum + 1) + minRandFirstNum;
         int secondNumber = new Random().nextInt(maxRandSecNum - minRandSecNum + 1) + minRandSecNum;
-        int previousSecondNumber = secondNumber;
 
         realOperation = ":";
         rightAnswer = firstNumber / secondNumber;
@@ -261,7 +262,6 @@ public class QuestionsDivActivity extends AppCompatActivity{
         }
 
         rightAnswer = firstNumber / secondNumber;
-        rightAnswerStr = String.valueOf((int) rightAnswer);
         previousSecondNumber = secondNumber;
 
         textQuestion.setText(firstNumber + "  " + realOperation + "  " + secondNumber + "  =  🔳");
