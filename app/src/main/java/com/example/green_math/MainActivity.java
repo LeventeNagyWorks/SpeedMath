@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = spClassSelect.edit();
 
-
                 editor.putBoolean("secClassSelected", secClassSelected);
                 editor.putBoolean("thirdClassSelected", thirdClassSelected);
                 editor.putBoolean("fourthClassSelected", fourthClassSelected);
