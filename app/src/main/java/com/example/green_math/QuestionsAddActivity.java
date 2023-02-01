@@ -48,7 +48,7 @@ public class QuestionsAddActivity extends AppCompatActivity{
 
     CountDownTimer mCountDownTimer;
     int counter;
-    long mMillisUntilFinished = 7000; //1 min = 60000
+    long mMillisUntilFinished = 30000; //1 min = 60000
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
