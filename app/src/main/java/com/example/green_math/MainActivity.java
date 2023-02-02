@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences spClassSelect;
 
+    Button button_sec;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Button button_sec = (Button) findViewById(R.id.button_sec);
+        button_sec = findViewById(R.id.button_sec);
         button_sec.setOnClickListener(new OnClickListener() {
 
             @Override
