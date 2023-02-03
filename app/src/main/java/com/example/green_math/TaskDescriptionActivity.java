@@ -17,6 +17,8 @@ public class TaskDescriptionActivity extends AppCompatActivity {
     boolean secClassSelected, thirdClassSelected, fourthClassSelected, fifthClassSelected,
             sixthClassSelected, seventhClassSelected, eighthClassSelected, ninthClassSelected;
 
+    int randColor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,22 @@ public class TaskDescriptionActivity extends AppCompatActivity {
         }
         if (ninthClassSelected) {
             textClass.setText("9. Osztály");
+        }
+
+        SharedPreferences spRandColor = getApplicationContext().getSharedPreferences("RandomColor", Context.MODE_PRIVATE);
+        randColor = spRandColor.getInt("randomColor", -1);
+
+        if (randColor == 1) {
+            textClass.setBackgroundResource(R.drawable.button_add);
+        }
+        if (randColor == 2) {
+            textClass.setBackgroundResource(R.drawable.button_sub);
+        }
+        if (randColor == 3) {
+            textClass.setBackgroundResource(R.drawable.button_mult);
+        }
+        if (randColor == 4) {
+            textClass.setBackgroundResource(R.drawable.button_div);
         }
 
 

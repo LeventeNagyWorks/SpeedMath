@@ -54,7 +54,7 @@
             android:layout_weight="8"
             >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_sec"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -62,9 +62,10 @@
                 android:background="@drawable/button_class"
                 android:text="2. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_third"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -72,9 +73,10 @@
                 android:background="@drawable/button_class"
                 android:text="3. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_fourth"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -82,9 +84,10 @@
                 android:background="@drawable/button_class"
                 android:text="4. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_fifth"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -92,7 +95,8 @@
                 android:background="@drawable/button_class"
                 android:text="5. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -104,7 +108,7 @@
             android:layout_weight="8"
             >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_sixth"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -112,9 +116,10 @@
                 android:background="@drawable/button_class"
                 android:text="6. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_seventh"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -122,9 +127,10 @@
                 android:background="@drawable/button_class"
                 android:text="7. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_eigth"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -132,9 +138,10 @@
                 android:background="@drawable/button_class"
                 android:text="8. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_ninth"
                 android:layout_width="140dp"
                 android:layout_height="60dp"
@@ -142,7 +149,8 @@
                 android:background="@drawable/button_class"
                 android:text="9. osztály"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
