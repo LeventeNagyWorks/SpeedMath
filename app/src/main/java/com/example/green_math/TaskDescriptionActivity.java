@@ -2,8 +2,10 @@ package com.example.green_math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.view.KeyEvent;
 import android.view.View.OnClickListener;
 import android.content.Intent;
@@ -19,6 +21,7 @@ public class TaskDescriptionActivity extends AppCompatActivity {
 
     int randColor;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,16 +68,17 @@ public class TaskDescriptionActivity extends AppCompatActivity {
         randColor = spRandColor.getInt("randomColor", -1);
 
         if (randColor == 1) {
-            textClass.setBackgroundResource(R.drawable.button_add);
+            textClass.setBackgroundResource(R.drawable.class_bg_add);
         }
         if (randColor == 2) {
-            textClass.setBackgroundResource(R.drawable.button_sub);
+            textClass.setBackgroundResource(R.drawable.class_bg_sub);
         }
         if (randColor == 3) {
-            textClass.setBackgroundResource(R.drawable.button_mult);
+            textClass.setBackgroundResource(R.drawable.class_bg_mult);
         }
         if (randColor == 4) {
-            textClass.setBackgroundResource(R.drawable.button_div);
+            textClass.setTextColor(getResources().getColor(R.color.black));
+            textClass.setBackgroundResource(R.drawable.class_bg_div);
         }
 
 

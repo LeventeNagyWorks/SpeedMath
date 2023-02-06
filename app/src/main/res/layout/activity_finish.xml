@@ -420,7 +420,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:text="Bennfoglalás"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:background="@drawable/div_header"
                 android:textSize="35dp"
                 android:textStyle="bold"

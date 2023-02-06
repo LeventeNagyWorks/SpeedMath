@@ -61,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
         button_sec = findViewById(R.id.button_sec);
+        button_third = findViewById(R.id.button_third);
+        button_fourth = findViewById(R.id.button_fourth);
+        button_fifth = findViewById(R.id.button_fifth);
+        button_sixth = findViewById(R.id.button_sixth);
+        button_seventh = findViewById(R.id.button_seventh);
+        button_eigth = findViewById(R.id.button_eigth);
+        button_nineth = findViewById(R.id.button_ninth);
+
+
+        randomButtonColor();
+
         button_sec.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -81,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
 
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
-                editor1.putInt("randomColor", -1);
+                editor1.putInt("randomColor", randButtonColor);
 
                 editor1.commit();
 
@@ -93,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button_third = findViewById(R.id.button_third);
         button_third.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -114,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
 
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
                 editor1.putInt("randomColor", -1);
 
@@ -126,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button_fourth = findViewById(R.id.button_fourth);
         button_fourth.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -147,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
 
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
                 editor1.putInt("randomColor", -1);
 
@@ -159,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button_fifth = findViewById(R.id.button_fifth);
         button_fifth.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -180,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
 
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
                 editor1.putInt("randomColor", -1);
 
@@ -192,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button_sixth = findViewById(R.id.button_sixth);
         button_sixth.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -213,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
 
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
                 editor1.putInt("randomColor", -1);
 
@@ -225,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button_seventh = findViewById(R.id.button_seventh);
         button_seventh.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -246,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
 
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
                 editor1.putInt("randomColor", -1);
 
@@ -258,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button_eigth = findViewById(R.id.button_eigth);
         button_eigth.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -279,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
 
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
                 editor1.putInt("randomColor", -1);
 
@@ -291,7 +296,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button_nineth = findViewById(R.id.button_ninth);
         button_nineth.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -311,9 +315,9 @@ public class MainActivity extends AppCompatActivity {
 
                 editor.commit();
 
-                SharedPreferences.Editor editor1 = spClassSelect.edit();
+                SharedPreferences.Editor editor1 = spRandomColor.edit();
 
-                editor1.putInt("randomColor", -1);
+                editor1.putInt("randomColor", randButtonColor);
 
                 editor1.commit();
 
@@ -322,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        randomButtonColor();
+
 
     }
 
