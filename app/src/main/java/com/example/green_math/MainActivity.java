@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         button_fifth = findViewById(R.id.button_fifth);
         button_sixth = findViewById(R.id.button_sixth);
         button_seventh = findViewById(R.id.button_seventh);
-        button_eigth = findViewById(R.id.button_eigth);
+        button_eigth = findViewById(R.id.button_eighth);
         button_nineth = findViewById(R.id.button_ninth);
 
 
